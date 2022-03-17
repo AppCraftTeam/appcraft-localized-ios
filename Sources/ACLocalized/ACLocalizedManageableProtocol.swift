@@ -20,13 +20,16 @@ public extension ACLocalizedManageableProtocol {
         set { objc_setAssociatedObject(self, Unmanaged.passUnretained(self).toOpaque(), newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
-    func applyLocalized(_ didLocalized: @escaping ACLocalizedSpecificClosure<Self>) {
+    @discardableResult
+    func applyLocalized(_ didLocalized: @escaping ACLocalizedSpecificClosure<Self>) -> Self {
         self.didLocalized = { object in
             guard let object = object as? Self else { return }
             didLocalized(object)
         }
         
         self.localizedManager.addWrapper(ACLocalizedWrapper(object: self))
+        
+        return self
     }
     
 }
