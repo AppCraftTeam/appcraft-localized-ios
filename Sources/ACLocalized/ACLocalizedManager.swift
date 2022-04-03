@@ -37,11 +37,6 @@ open class ACLocalizedManager<Language: ACLocalizedLanguageProtocol> {
         if let key = self.language?.rawValue, let path = Bundle.main.path(forResource: key, ofType: "lproj"), let bundle = Bundle(path: path) {
             return bundle
         } else {
-//            #if SWIFT_PACKAGE
-//            return Bundle.module
-//            #else
-//            return Bundle(for: Self.self)
-//            #endif
             return Bundle(for: Self.self)
         }
     }

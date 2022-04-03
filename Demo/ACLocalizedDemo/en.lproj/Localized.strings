@@ -1,0 +1,10 @@
+/* 
+  Localized.strings
+  ACLocalizedDemo
+
+  Created by Дмитрий Поляков on 30.03.2022.
+  
+*/
+
+"test" = "TEST";
+"change_localized" = "Change localized";
