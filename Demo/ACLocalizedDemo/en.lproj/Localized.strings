@@ -8,3 +8,8 @@
 
 "test" = "TEST";
 "change_localized" = "Change localized";
+"text" = "Text";
+"placeholder" = "Placeholder";
+"done" = "Done";
+"nav_title" = "Title %d";
+"next" = "Next";

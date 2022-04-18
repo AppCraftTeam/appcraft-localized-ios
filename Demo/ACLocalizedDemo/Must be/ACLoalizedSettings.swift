@@ -9,6 +9,7 @@ import Foundation
 
 public enum ACLocalizedSettings {
     
+    // MARK: - Props
     public static var bundle: Bundle {
         guard
             let key = self.language?.identifer,
@@ -33,13 +34,8 @@ public enum ACLocalizedSettings {
                 UserDefaults.standard.removeObject(forKey: self.languageUserDefaultsKey)
             }
 
-            self.localize()
-        }
-    }
-    
-    private static func localize() {
-        self.pickers.forEach { picker in
-            picker.localize()
+            self.pickers.removeAll(where: { $0.object == nil })
+            self.pickers.forEach({ $0.localize() })
         }
     }
     
@@ -60,7 +56,6 @@ extension ACLocalizedSettings {
         }
         
         guard let localized = localized else { return }
-        let picker = ACLocalizedPicker(object, property: property, localized: localized)
-        self.pickers += [picker]
+        self.pickers += [ACLocalizedPicker(object, property: property, localized: localized)]
     }
 }

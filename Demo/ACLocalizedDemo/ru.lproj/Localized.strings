@@ -8,3 +8,8 @@
 
 "test" = "ТЕСТ";
 "change_localized" = "Изменить язык";
+"text" = "Текст";
+"placeholder" = "Плейсхолдер";
+"done" = "Готово";
+"nav_title" = "Заголовок %d";
+"next" = "Далее";
