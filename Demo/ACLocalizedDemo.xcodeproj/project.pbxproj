@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E21216CD281B1A81001CD70C /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21216CC281B1A81001CD70C /* LocalizedString.swift */; };
 		E294205F27FA139F0059B82D /* ACLocalizedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E294205E27FA139F0059B82D /* ACLocalizedLanguage.swift */; };
 		E294206127FA15D50059B82D /* ACLocalizedStringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E294206027FA15D50059B82D /* ACLocalizedStringProtocol.swift */; };
 		E294206327FA16340059B82D /* ACLocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E294206227FA16340059B82D /* ACLocalizedString.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E21216CC281B1A81001CD70C /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		E294205E27FA139F0059B82D /* ACLocalizedLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLocalizedLanguage.swift; sourceTree = "<group>"; };
 		E294206027FA15D50059B82D /* ACLocalizedStringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLocalizedStringProtocol.swift; sourceTree = "<group>"; };
 		E294206227FA16340059B82D /* ACLocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLocalizedString.swift; sourceTree = "<group>"; };
@@ -68,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E21216CB281B1A77001CD70C /* New */ = {
+			isa = PBXGroup;
+			children = (
+				E21216CC281B1A81001CD70C /* LocalizedString.swift */,
+			);
+			path = New;
+			sourceTree = "<group>";
+		};
 		E294205D27FA13950059B82D /* Must be */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +136,7 @@
 		E2CEA7D827F3541400F92F7C /* ACLocalizedDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E21216CB281B1A77001CD70C /* New */,
 				E294205D27FA13950059B82D /* Must be */,
 				E2CEA7D927F3541400F92F7C /* AppDelegate.swift */,
 				E2CEA7DD27F3541400F92F7C /* ViewController.swift */,
@@ -243,6 +254,7 @@
 				E294206727FA1BFA0059B82D /* ACLocalizedObjectProtocol.swift in Sources */,
 				E294205F27FA139F0059B82D /* ACLocalizedLanguage.swift in Sources */,
 				E2AD178B280DB23B006B6276 /* UILabel+ACLocalizedObjectProtocol.swift in Sources */,
+				E21216CD281B1A81001CD70C /* LocalizedString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

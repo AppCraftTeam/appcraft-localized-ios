@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         
         self.view.backgroundColor = .white
         
-        self.navigationItem.titleLocalized = "dfdg \(localized: ACLocalizedString.nav_title(1)) \(string: 1.description)"
+//        self.navigationItem.titleLocalized = "dfdg \(localized: ACLocalizedString.nav_title(1)) \(string: 1.description)"
         
 //        self.navigationItem.titleLocalized = .nav_title(self.navigationController?.viewControllers.count ?? 0)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(titleLocalized: .next(), style: .plain, target: self, action: #selector(self.tapNext))
