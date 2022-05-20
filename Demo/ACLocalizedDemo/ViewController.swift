@@ -14,7 +14,20 @@ class ViewController: UIViewController {
     private lazy var label: UILabel = {
         let result = UILabel()
         result.textAlignment = .center
-        result.textLocalized = .test()
+        
+        return result
+    }()
+    
+    private lazy var label1: UILabel = {
+        let result = UILabel()
+        result.textAlignment = .center
+        
+        return result
+    }()
+    
+    private lazy var label2: UILabel = {
+        let result = UILabel()
+        result.textAlignment = .center
         
         return result
     }()
@@ -50,7 +63,13 @@ class ViewController: UIViewController {
         changeLocalizedButton.setTitleLocalized(.change_localized(), for: .normal)
         changeLocalizedButton.addTarget(self, action: #selector(self.tapBt), for: .touchUpInside)
         
-        let stackView = UIStackView(arrangedSubviews: [self.label, self.textField, changeLocalizedButton])
+        let stackView = UIStackView(arrangedSubviews: [
+            self.label,
+            self.label1,
+            self.label2,
+            self.textField,
+            changeLocalizedButton
+        ])
         stackView.axis = .vertical
         stackView.spacing = 16
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -61,6 +80,19 @@ class ViewController: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             stackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
         ])
+        
+//        let testLocalizedString = LocalizedString(key: "test", table: "Localized")
+//        let textLocalizedString = LocalizedString(key: "text", table: "Localized")
+//        let placeholderLocalizedString = LocalizedString(key: "placeholder", table: "Localized")
+//        let placeholderLocalizedAttributedString = LocalizedString(string: placeholderLocalizedString, attributes: [
+//            .backgroundColor: UIColor.red,
+//            .foregroundColor: UIColor.gray
+//        ])
+//        
+//        print("!!! ACLocalizedSettings.language", ACLocalizedSettings.language)
+//        self.label.text = testLocalizedString.toString()
+//        self.label1.text = textLocalizedString.toString()
+//        self.label2.attributedText = placeholderLocalizedAttributedString.toAttributedString()
     }
     
     @objc

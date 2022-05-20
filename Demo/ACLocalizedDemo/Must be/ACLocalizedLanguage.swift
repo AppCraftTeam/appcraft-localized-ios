@@ -26,3 +26,12 @@ extension ACLocalizedLanguage: Equatable {
     }
     
 }
+
+// MARK: - CustomStringConvertible
+extension ACLocalizedLanguage: CustomStringConvertible {
+    
+    public var description: String {
+        self.identifer
+    }
+    
+}
