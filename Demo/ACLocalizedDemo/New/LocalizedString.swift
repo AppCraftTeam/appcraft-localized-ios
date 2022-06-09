@@ -7,215 +7,201 @@
 
 import Foundation
 
-public protocol StringLocalizable {
+public protocol LocalizedStringProtocol {
     func toString() -> String
     func toAttributedString() -> NSAttributedString
 }
 
-public struct StringLocalized {
-    
-    // MARK: - Init
-    init(
-        type: StringType,
-        key: String?,
-        table: String?,
-        args: [CVarArg]?,
-        stringLiteral: String?,
-        stringLocalized: StringLocalizable?,
-        stringsLocalized: [StringLocalizable]?,
-        attributes: [NSAttributedString.Key: Any]?
-    ) {
-        self.type = type
-        self.key = key
-        self.table = table
-        self.args = args
-        self.stringLiteral = stringLiteral
-        self.stringLocalized = stringLocalized
-        self.stringsLocalized = stringsLocalized
-        self.attributes = attributes
-    }
-    
-    init(key: String, table: String, args: CVarArg...) {
-        self.init(
-            type: .localized,
-            key: key,
-            table: table,
-            args: args,
-            stringLiteral: nil,
-            stringLocalized: nil,
-            stringsLocalized: nil,
-            attributes: nil
-        )
-    }
-    
-    init(stringLocalized: StringLocalizable, attributes: [NSAttributedString.Key: Any]?) {
-        self.init(
-            type: .single,
-            key: nil,
-            table: nil,
-            args: nil,
-            stringLiteral: nil,
-            stringLocalized: stringLocalized,
-            stringsLocalized: nil,
-            attributes: attributes
-        )
-    }
-    
-    init(stringsLocalized: [StringLocalizable]) {
-        self.init(
-            type: .composition,
-            key: nil,
-            table: nil,
-            args: nil,
-            stringLiteral: nil,
-            stringLocalized: nil,
-            stringsLocalized: stringsLocalized,
-            attributes: nil
-        )
-    }
-    
-    // MARK: - Props
-    public let type: StringType
-    public let key: String?
-    public let table: String?
-    public let args: [CVarArg]?
-    public let stringLiteral: String?
-    public let stringLocalized: StringLocalizable?
-    public let stringsLocalized: [StringLocalizable]?
-    public let attributes: [NSAttributedString.Key: Any]?
-}
-
-// MARK: - StringType
-public extension StringLocalized {
-    
-    enum StringType {
-        case localized
-        case literal
-        case single
-        case composition
-    }
-    
-}
-
-// MARK: - LocalizedStringProtocol
-extension StringLocalized: StringLocalizable {
+extension String: LocalizedStringProtocol {
     
     public func toString() -> String {
-        switch self.type {
-        case .localized:
-            guard let key = self.key, let table = self.table, let args = self.args else { return "" }
-            let format = ACLocalizedSettings.bundle.localizedString(forKey: key, value: nil, table: table)
-            return String(format: format, locale: Locale.current, arguments: args)
-        case .literal:
-            return self.stringLiteral ?? ""
-        case .single:
-            return self.stringLocalized?.toString() ?? ""
-        case .composition:
-            return (self.stringsLocalized ?? []).reduce("", { $0 + $1.toString() })
-        }
+        self
     }
     
     public func toAttributedString() -> NSAttributedString {
-//        switch self.type {
-//        case .simple,
-//            .literal:
-//            return NSAttributedString(string: self.toString(), attributes: self.attributes)
-//        case .composition:
-//            let result = NSMutableAttributedString()
-//
-//            (self.strings ?? []).forEach { string in
-//                result.append(string.toAttributedString())
-//            }
-//
-//            return result
-//        }
-        .init(string: "")
+        NSAttributedString(string: self.toString())
     }
     
 }
 
+public struct LocalizedKeyString {
+    public let key: String
+    public let table: String
+    public let args: [CVarArg]
+}
 
-//public struct LocalizedString {
-//    
+extension LocalizedKeyString: LocalizedStringProtocol {
+    
+    public func toString() -> String {
+        let format = ACLocalizedSettings.bundle.localizedString(forKey: self.key, value: nil, table: self.table)
+        return String(format: format, locale: Locale.current, arguments: self.args)
+    }
+    
+    public func toAttributedString() -> NSAttributedString {
+        NSAttributedString(string: self.toString())
+    }
+    
+}
+
+public struct LocalizedAttributedString {
+    public let string: LocalizedStringProtocol
+    public let attributes: [NSAttributedString.Key: Any]?
+}
+
+extension LocalizedAttributedString: LocalizedStringProtocol {
+    
+    public func toString() -> String {
+        self.string.toString()
+    }
+    
+    public func toAttributedString() -> NSAttributedString {
+        NSAttributedString(string: self.toString(), attributes: self.attributes)
+    }
+    
+}
+
+public struct LocalizedString {
+    public var strings: [LocalizedStringProtocol]
+    
+    public static func + (lhs: LocalizedString, rhs: LocalizedString) -> LocalizedString {
+        LocalizedString(strings: lhs.strings + rhs.strings)
+    }
+    
+    public static func += (lhs: inout LocalizedString, rhs: LocalizedString) {
+        lhs.strings += rhs.strings
+    }
+}
+
+extension LocalizedString: LocalizedStringProtocol {
+    
+    public func toString() -> String {
+        self.strings.reduce("", { $0 + $1.toString() })
+    }
+    
+    public func toAttributedString() -> NSAttributedString {
+        let result = NSMutableAttributedString()
+        self.strings.forEach({ result.append($0.toAttributedString()) })
+        
+        return result
+    }
+    
+}
+
+extension LocalizedString: ExpressibleByStringLiteral {
+    
+    public init(stringLiteral value: String) {
+        self.strings = [value]
+    }
+    
+}
+
+extension LocalizedString: CustomStringConvertible {
+    
+    public var description: String {
+        self.toString()
+    }
+    
+}
+
+//extension LocalizedString: ExpressibleByStringInterpolation {
+//
+////    public struct StringInterpolation: StringInterpolationProtocol {
+////        public typealias StringLiteralType = LocalizedString
+////
+////        init(literalCapacity: Int, interpolationCount: Int) {
+////
+////        }
+////
+////        mutating func appendLiteral(_ literal: LocalizedString) {
+////
+////        }
+////    }
+////
+////    public init(stringInterpolation: StringInterpolation) {
+//////        self.init("", "")
+//////        self.stringInterpolation = stringInterpolation
+////    }
+//
+//    struct LocalizedInterpolation: StringInterpolationProtocol {
+//        typealias StringLiteralType = String
+//
+//        var values: [String] = []
+//
+//        init(literalCapacity: Int, interpolationCount: Int) {
+//
+//        }
+//
+//        mutating func appendLiteral(_ literal: String) {
+//            values.append(literal)
+//        }
+//    }
+//
+//}
+
+
+
+//public struct ACLocalizedString: ExpressibleByStringLiteral, ExpressibleByStringInterpolation, CustomStringConvertible {
+//
 //    // MARK: - Init
-//    public init(key: String, table: String, args: [CVarArg]) {
+//    public init(_ key: String, _ table: String, _ args: CVarArg...) {
 //        self.key = key
 //        self.table = table
 //        self.args = args
 //    }
-//    
+//
 //    // MARK: - Props
 //    public let key: String
 //    public let table: String
 //    public let args: [CVarArg]
-//}
+//    public var isLiteral: Bool = false
+//    public var stringInterpolation: StringInterpolation?
 //
-//// MARK: - StringLocalizable
-//extension LocalizedString: StringLocalizable {
-//    
-//    public func toString() -> String {
-//        let format = ACLocalizedSettings.bundle.localizedString(forKey: self.key, value: nil, table: self.table)
-//        return String(format: format, locale: Locale.current, arguments: self.args)
-//    }
-//    
-//    public func toAttributedString() -> NSAttributedString {
-//        NSAttributedString(string: self.toString())
-//    }
-//    
-//}
-
-//public struct LocalizedAttributedString {
-//    
-//    // MARK: - Init
-//    public init(localizedString: LocalizedString, attributes: [NSAttributedString.Key: Any]?) {
-//        self.localizedString = localizedString
-//        self.attributes = attributes
-//    }
-//    
-//    // MARK: - Props
-//    public let localizedString: LocalizedString
-//    public let attributes: [NSAttributedString.Key: Any]?
-//}
+//    public struct StringInterpolation: StringInterpolationProtocol {
+//        var output = ""
 //
-//// MARK: - StringLocalizable
-//extension LocalizedAttributedString: StringLocalizable {
-//    
-//    public func toString() -> String {
-//        self.localizedString.toString()
-//    }
-//    
-//    public func toAttributedString() -> NSAttributedString {
-//        NSAttributedString(string: self.toString(), attributes: self.attributes)
-//    }
-//    
-//}
-//
-//public struct LocalizedCompositionString {
-//    
-//    // MARK: - Init
-//    public init(localizedStrings: [LocalizedString]) {
-//        self.localizedStrings = localizedStrings
-//    }
-//    
-//    // MARK: - Props
-//    public let localizedStrings: [LocalizedString]
-//}
-//
-//// MARK: - StringLocalizable
-//extension LocalizedCompositionString: StringLocalizable {
-//    
-//    public func toString() -> String {
-//        self.localizedStrings.reduce("", { $0 + $1.toString() })
-//    }
-//    
-//    public func toAttributedString() -> NSAttributedString {
-//        let result: NSMutableAttributedString = .init()
-//        
-//        self.localizedStrings.forEach { string in
-//            result.append(.init(attributedString: string.toAttributedString()))
+//        var stringsLocalized: [ACLocalizedString] = [] {
+//            didSet { self.localized() }
 //        }
-//        
-//        return result
+//
+//        public init(literalCapacity: Int, interpolationCount: Int) {
+//            self.output.reserveCapacity(literalCapacity * 2)
+//        }
+//
+//        mutating public func appendLiteral(_ literal: String) {
+//            let localized = ACLocalizedString(stringLiteral: literal)
+//            self.stringsLocalized.append(localized)
+//        }
+//
+//        mutating public func appendInterpolation(localized: ACLocalizedString?) {
+//            guard let localized = localized else { return }
+//            self.stringsLocalized += [localized]
+//        }
+//
+//        mutating public func appendInterpolation(string: String?) {
+//            guard let string = string else { return }
+//            let localized = ACLocalizedString(stringLiteral: string)
+//            self.stringsLocalized += [localized]
+//        }
+//
+//        @discardableResult
+//        public mutating func localized() -> String {
+//            self.output = self.stringsLocalized.reduce("", { $0 + $1.toLocalizedString() })
+//            return self.output
+//        }
+//
 //    }
-//    
+//
+//    public var description: String {
+//        self.stringInterpolation?.output ?? ""
+//    }
+//
+//    public init(stringLiteral value: String) {
+//        self.init(value, "")
+//        self.isLiteral = true
+//    }
+//
+//    public init(stringInterpolation: StringInterpolation) {
+//        self.init("", "")
+//        self.stringInterpolation = stringInterpolation
+//    }
 //}

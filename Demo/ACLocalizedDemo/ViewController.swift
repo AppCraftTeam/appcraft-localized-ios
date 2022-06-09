@@ -32,21 +32,21 @@ class ViewController: UIViewController {
         return result
     }()
     
-    private lazy var textField: UITextField = {
-        let toolBar = UIToolbar()
-        let doneItem = UIBarButtonItem(titleLocalized: .done(), style: .plain, target: self, action: #selector(self.tapDone))
-        toolBar.items = [doneItem]
-        toolBar.sizeToFit()
-        
-        let result = UITextField()
-        result.borderStyle = .roundedRect
-        result.textLocalized = .text()
-        result.placeholderLocalized = .placeholder()
-        result.addTarget(self, action: #selector(self.textFieldChangeEditing(_:)), for: .editingChanged)
-        result.inputAccessoryView = toolBar
-        
-        return result
-    }()
+//    private lazy var textField: UITextField = {
+//        let toolBar = UIToolbar()
+//        let doneItem = UIBarButtonItem(titleLocalized: .done(), style: .plain, target: self, action: #selector(self.tapDone))
+//        toolBar.items = [doneItem]
+//        toolBar.sizeToFit()
+//
+//        let result = UITextField()
+//        result.borderStyle = .roundedRect
+////        result.textLocalized = .text()
+////        result.placeholderLocalized = .placeholder()
+//        result.addTarget(self, action: #selector(self.textFieldChangeEditing(_:)), for: .editingChanged)
+//        result.inputAccessoryView = toolBar
+//
+//        return result
+//    }()
 
     // MARK: - Methods
     override func viewDidLoad() {
@@ -60,14 +60,14 @@ class ViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(titleLocalized: .next(), style: .plain, target: self, action: #selector(self.tapNext))
     
         let changeLocalizedButton = UIButton(type: .system)
-        changeLocalizedButton.setTitleLocalized(.change_localized(), for: .normal)
+//        changeLocalizedButton.setTitleLocalized(.change_localized(), for: .normal)
         changeLocalizedButton.addTarget(self, action: #selector(self.tapBt), for: .touchUpInside)
         
         let stackView = UIStackView(arrangedSubviews: [
             self.label,
             self.label1,
             self.label2,
-            self.textField,
+//            self.textField,
             changeLocalizedButton
         ])
         stackView.axis = .vertical
@@ -88,16 +88,20 @@ class ViewController: UIViewController {
 //            .backgroundColor: UIColor.red,
 //            .foregroundColor: UIColor.gray
 //        ])
-//        
-//        print("!!! ACLocalizedSettings.language", ACLocalizedSettings.language)
-//        self.label.text = testLocalizedString.toString()
-//        self.label1.text = textLocalizedString.toString()
-//        self.label2.attributedText = placeholderLocalizedAttributedString.toAttributedString()
+        print("!!!", ACLocalizedString.text().toLocalizedString())
+        
+//        self.label.textLocalized = .test()
+//        self.label.textLocalized = .text()
+        
+        self.label.text = ACLocalizedString.text().toLocalizedString()
+        changeLocalizedButton.setTitle(ACLocalizedString.change_localized().toLocalizedString(), for: .normal)
+        
     }
     
     @objc
     private func tapBt() {
         ACLocalizedSettings.language = ACLocalizedSettings.language == .en ? .ru : .en
+        UIApplication.shared.windows.forEach({ $0.reload() })
     }
     
     @objc
@@ -116,11 +120,11 @@ class ViewController: UIViewController {
     }
     
     private func updateLabel() {
-        if let text = self.textField.text, !text.isEmpty {
-            self.label.textLocalized = .init(stringLiteral: text)
-        } else {
-            self.label.textLocalized = .test()
-        }
+//        if let text = self.textField.text, !text.isEmpty {
+//            self.label.textLocalized = .init(stringLiteral: text)
+//        } else {
+//            self.label.textLocalized = .test()
+//        }
     }
 
 }
@@ -158,6 +162,37 @@ extension ACLocalizedString {
     
     static func next() -> ACLocalizedString {
         .init("next", "Localized")
+    }
+    
+}
+
+public extension UIWindow {
+
+    /// Unload all views and add them back
+    /// Used for applying `UIAppearance` changes to existing views
+    func reload() {
+//        subviews.forEach { view in
+//            view.removeFromSuperview()
+//            addSubview(view)
+//        }
+        print("!!! reload")
+//        let root = self.rootViewController
+//        self.rootViewController = root
+        
+        self.rootViewController?.reload()
+        
+    }
+}
+
+extension UIViewController {
+    
+    func reload() {
+        self.view.subviews.forEach { subview in
+            subview.removeFromSuperview()
+            view.addSubview(subview)
+        }
+        
+        self.children.forEach({ $0.reload() })
     }
     
 }

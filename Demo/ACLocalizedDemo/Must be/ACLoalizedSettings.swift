@@ -34,8 +34,8 @@ public enum ACLocalizedSettings {
                 UserDefaults.standard.removeObject(forKey: self.languageUserDefaultsKey)
             }
 
-            self.pickers.removeAll(where: { $0.object == nil })
-            self.pickers.forEach({ $0.localize() })
+//            self.pickers.removeAll(where: { $0.object == nil })
+//            self.pickers.forEach({ $0.localize() })
         }
     }
     
