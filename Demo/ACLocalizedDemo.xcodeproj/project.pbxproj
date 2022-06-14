@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		E21216CD281B1A81001CD70C /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21216CC281B1A81001CD70C /* LocalizedString.swift */; };
-		E294205F27FA139F0059B82D /* ACLocalizedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E294205E27FA139F0059B82D /* ACLocalizedLanguage.swift */; };
-		E294206127FA15D50059B82D /* ACLocalizedStringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E294206027FA15D50059B82D /* ACLocalizedStringProtocol.swift */; };
-		E294206327FA16340059B82D /* ACLocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E294206227FA16340059B82D /* ACLocalizedString.swift */; };
-		E294206527FA172D0059B82D /* ACLocalizedAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E294206427FA172D0059B82D /* ACLocalizedAttributedString.swift */; };
-		E294206727FA1BFA0059B82D /* ACLocalizedObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E294206627FA1BFA0059B82D /* ACLocalizedObjectProtocol.swift */; };
-		E294206927FA1C1E0059B82D /* ACLocalizedPropertyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E294206827FA1C1E0059B82D /* ACLocalizedPropertyProtocol.swift */; };
-		E294206B27FA1C2F0059B82D /* ACLocalizedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E294206A27FA1C2F0059B82D /* ACLocalizedPicker.swift */; };
-		E294206D27FA1C990059B82D /* ACLoalizedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E294206C27FA1C990059B82D /* ACLoalizedSettings.swift */; };
-		E2AD178B280DB23B006B6276 /* UILabel+ACLocalizedObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD178A280DB23B006B6276 /* UILabel+ACLocalizedObjectProtocol.swift */; };
-		E2AD178D280DB261006B6276 /* UIButton+ACLocalizedObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD178C280DB261006B6276 /* UIButton+ACLocalizedObjectProtocol.swift */; };
-		E2AD178F280DB7FD006B6276 /* UItextView+ACLocalizedObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD178E280DB7FD006B6276 /* UItextView+ACLocalizedObjectProtocol.swift */; };
-		E2AD1791280DB942006B6276 /* UITextField+ACLocalizedObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD1790280DB942006B6276 /* UITextField+ACLocalizedObjectProtocol.swift */; };
-		E2AD1795280DDD14006B6276 /* UIBarButtonItem+ACLocalizedObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD1794280DDD14006B6276 /* UIBarButtonItem+ACLocalizedObjectProtocol.swift */; };
-		E2AD1797280DE2BF006B6276 /* UINavigationItem+ACLocalizedObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD1796280DE2BF006B6276 /* UINavigationItem+ACLocalizedObjectProtocol.swift */; };
+		E22797642858927100C5BD6E /* LocalizedStringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22797632858927100C5BD6E /* LocalizedStringProtocol.swift */; };
+		E22797662858928900C5BD6E /* String+LocalizedStringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22797652858928900C5BD6E /* String+LocalizedStringProtocol.swift */; };
+		E22797682858929900C5BD6E /* LocalizedKeyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22797672858929900C5BD6E /* LocalizedKeyString.swift */; };
+		E227976A285892AC00C5BD6E /* LocalizedAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2279769285892AC00C5BD6E /* LocalizedAttributedString.swift */; };
+		E227976C2858941A00C5BD6E /* LocalizedCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227976B2858941A00C5BD6E /* LocalizedCore.swift */; };
+		E227976F285895CC00C5BD6E /* UILabel+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227976E285895CC00C5BD6E /* UILabel+Localized.swift */; };
+		E22797712858963200C5BD6E /* LocalizedObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22797702858963200C5BD6E /* LocalizedObjectProtocol.swift */; };
+		E22797732858966800C5BD6E /* LocalizedPropertyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22797722858966800C5BD6E /* LocalizedPropertyProtocol.swift */; };
+		E22797762858973900C5BD6E /* LocalizedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22797752858973900C5BD6E /* LocalizedPicker.swift */; };
+		E22797792858AD5E00C5BD6E /* LocalizedStringInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22797782858AD5E00C5BD6E /* LocalizedStringInterpolation.swift */; };
+		E294205F27FA139F0059B82D /* LocalizedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E294205E27FA139F0059B82D /* LocalizedLanguage.swift */; };
+		E2AD178D280DB261006B6276 /* UIButton+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD178C280DB261006B6276 /* UIButton+Localized.swift */; };
+		E2AD178F280DB7FD006B6276 /* UItextView+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD178E280DB7FD006B6276 /* UItextView+Localized.swift */; };
+		E2AD1791280DB942006B6276 /* UITextField+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD1790280DB942006B6276 /* UITextField+Localized.swift */; };
+		E2AD1795280DDD14006B6276 /* UIBarButtonItem+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD1794280DDD14006B6276 /* UIBarButtonItem+Localized.swift */; };
+		E2AD1797280DE2BF006B6276 /* UINavigationItem+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AD1796280DE2BF006B6276 /* UINavigationItem+Localized.swift */; };
 		E2CEA7DA27F3541400F92F7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CEA7D927F3541400F92F7C /* AppDelegate.swift */; };
 		E2CEA7DE27F3541400F92F7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CEA7DD27F3541400F92F7C /* ViewController.swift */; };
 		E2CEA7E327F3541500F92F7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2CEA7E227F3541500F92F7C /* Assets.xcassets */; };
@@ -32,20 +34,22 @@
 
 /* Begin PBXFileReference section */
 		E21216CC281B1A81001CD70C /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
-		E294205E27FA139F0059B82D /* ACLocalizedLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLocalizedLanguage.swift; sourceTree = "<group>"; };
-		E294206027FA15D50059B82D /* ACLocalizedStringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLocalizedStringProtocol.swift; sourceTree = "<group>"; };
-		E294206227FA16340059B82D /* ACLocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLocalizedString.swift; sourceTree = "<group>"; };
-		E294206427FA172D0059B82D /* ACLocalizedAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLocalizedAttributedString.swift; sourceTree = "<group>"; };
-		E294206627FA1BFA0059B82D /* ACLocalizedObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLocalizedObjectProtocol.swift; sourceTree = "<group>"; };
-		E294206827FA1C1E0059B82D /* ACLocalizedPropertyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLocalizedPropertyProtocol.swift; sourceTree = "<group>"; };
-		E294206A27FA1C2F0059B82D /* ACLocalizedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLocalizedPicker.swift; sourceTree = "<group>"; };
-		E294206C27FA1C990059B82D /* ACLoalizedSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLoalizedSettings.swift; sourceTree = "<group>"; };
-		E2AD178A280DB23B006B6276 /* UILabel+ACLocalizedObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+ACLocalizedObjectProtocol.swift"; sourceTree = "<group>"; };
-		E2AD178C280DB261006B6276 /* UIButton+ACLocalizedObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ACLocalizedObjectProtocol.swift"; sourceTree = "<group>"; };
-		E2AD178E280DB7FD006B6276 /* UItextView+ACLocalizedObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UItextView+ACLocalizedObjectProtocol.swift"; sourceTree = "<group>"; };
-		E2AD1790280DB942006B6276 /* UITextField+ACLocalizedObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+ACLocalizedObjectProtocol.swift"; sourceTree = "<group>"; };
-		E2AD1794280DDD14006B6276 /* UIBarButtonItem+ACLocalizedObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+ACLocalizedObjectProtocol.swift"; sourceTree = "<group>"; };
-		E2AD1796280DE2BF006B6276 /* UINavigationItem+ACLocalizedObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+ACLocalizedObjectProtocol.swift"; sourceTree = "<group>"; };
+		E22797632858927100C5BD6E /* LocalizedStringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStringProtocol.swift; sourceTree = "<group>"; };
+		E22797652858928900C5BD6E /* String+LocalizedStringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizedStringProtocol.swift"; sourceTree = "<group>"; };
+		E22797672858929900C5BD6E /* LocalizedKeyString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedKeyString.swift; sourceTree = "<group>"; };
+		E2279769285892AC00C5BD6E /* LocalizedAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedAttributedString.swift; sourceTree = "<group>"; };
+		E227976B2858941A00C5BD6E /* LocalizedCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedCore.swift; sourceTree = "<group>"; };
+		E227976E285895CC00C5BD6E /* UILabel+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Localized.swift"; sourceTree = "<group>"; };
+		E22797702858963200C5BD6E /* LocalizedObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedObjectProtocol.swift; sourceTree = "<group>"; };
+		E22797722858966800C5BD6E /* LocalizedPropertyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedPropertyProtocol.swift; sourceTree = "<group>"; };
+		E22797752858973900C5BD6E /* LocalizedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedPicker.swift; sourceTree = "<group>"; };
+		E22797782858AD5E00C5BD6E /* LocalizedStringInterpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStringInterpolation.swift; sourceTree = "<group>"; };
+		E294205E27FA139F0059B82D /* LocalizedLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedLanguage.swift; sourceTree = "<group>"; };
+		E2AD178C280DB261006B6276 /* UIButton+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Localized.swift"; sourceTree = "<group>"; };
+		E2AD178E280DB7FD006B6276 /* UItextView+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UItextView+Localized.swift"; sourceTree = "<group>"; };
+		E2AD1790280DB942006B6276 /* UITextField+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Localized.swift"; sourceTree = "<group>"; };
+		E2AD1794280DDD14006B6276 /* UIBarButtonItem+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Localized.swift"; sourceTree = "<group>"; };
+		E2AD1796280DE2BF006B6276 /* UINavigationItem+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Localized.swift"; sourceTree = "<group>"; };
 		E2CEA7D627F3541400F92F7C /* ACLocalizedDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACLocalizedDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2CEA7D927F3541400F92F7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2CEA7DD27F3541400F92F7C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,46 +77,49 @@
 		E21216CB281B1A77001CD70C /* New */ = {
 			isa = PBXGroup;
 			children = (
-				E21216CC281B1A81001CD70C /* LocalizedString.swift */,
+				E22797772858A00300C5BD6E /* Core */,
+				E2279774285896D100C5BD6E /* Strings */,
+				E227976D285895BC00C5BD6E /* UI Extensions */,
 			);
 			path = New;
 			sourceTree = "<group>";
 		};
-		E294205D27FA13950059B82D /* Must be */ = {
+		E227976D285895BC00C5BD6E /* UI Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E294206C27FA1C990059B82D /* ACLoalizedSettings.swift */,
-				E294205E27FA139F0059B82D /* ACLocalizedLanguage.swift */,
-				E294206A27FA1C2F0059B82D /* ACLocalizedPicker.swift */,
-				E2AD1792280DD7F5006B6276 /* Object */,
-				E2AD1793280DD8A0006B6276 /* String */,
+				E2AD1794280DDD14006B6276 /* UIBarButtonItem+Localized.swift */,
+				E2AD178C280DB261006B6276 /* UIButton+Localized.swift */,
+				E227976E285895CC00C5BD6E /* UILabel+Localized.swift */,
+				E2AD1796280DE2BF006B6276 /* UINavigationItem+Localized.swift */,
+				E2AD1790280DB942006B6276 /* UITextField+Localized.swift */,
+				E2AD178E280DB7FD006B6276 /* UItextView+Localized.swift */,
 			);
-			path = "Must be";
+			path = "UI Extensions";
 			sourceTree = "<group>";
 		};
-		E2AD1792280DD7F5006B6276 /* Object */ = {
+		E2279774285896D100C5BD6E /* Strings */ = {
 			isa = PBXGroup;
 			children = (
-				E294206627FA1BFA0059B82D /* ACLocalizedObjectProtocol.swift */,
-				E294206827FA1C1E0059B82D /* ACLocalizedPropertyProtocol.swift */,
-				E2AD1794280DDD14006B6276 /* UIBarButtonItem+ACLocalizedObjectProtocol.swift */,
-				E2AD178C280DB261006B6276 /* UIButton+ACLocalizedObjectProtocol.swift */,
-				E2AD178A280DB23B006B6276 /* UILabel+ACLocalizedObjectProtocol.swift */,
-				E2AD1796280DE2BF006B6276 /* UINavigationItem+ACLocalizedObjectProtocol.swift */,
-				E2AD1790280DB942006B6276 /* UITextField+ACLocalizedObjectProtocol.swift */,
-				E2AD178E280DB7FD006B6276 /* UItextView+ACLocalizedObjectProtocol.swift */,
+				E2279769285892AC00C5BD6E /* LocalizedAttributedString.swift */,
+				E22797672858929900C5BD6E /* LocalizedKeyString.swift */,
+				E21216CC281B1A81001CD70C /* LocalizedString.swift */,
+				E22797782858AD5E00C5BD6E /* LocalizedStringInterpolation.swift */,
+				E22797632858927100C5BD6E /* LocalizedStringProtocol.swift */,
+				E22797652858928900C5BD6E /* String+LocalizedStringProtocol.swift */,
 			);
-			path = Object;
+			path = Strings;
 			sourceTree = "<group>";
 		};
-		E2AD1793280DD8A0006B6276 /* String */ = {
+		E22797772858A00300C5BD6E /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				E294206227FA16340059B82D /* ACLocalizedString.swift */,
-				E294206027FA15D50059B82D /* ACLocalizedStringProtocol.swift */,
-				E294206427FA172D0059B82D /* ACLocalizedAttributedString.swift */,
+				E227976B2858941A00C5BD6E /* LocalizedCore.swift */,
+				E294205E27FA139F0059B82D /* LocalizedLanguage.swift */,
+				E22797702858963200C5BD6E /* LocalizedObjectProtocol.swift */,
+				E22797752858973900C5BD6E /* LocalizedPicker.swift */,
+				E22797722858966800C5BD6E /* LocalizedPropertyProtocol.swift */,
 			);
-			path = String;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		E2CEA7CD27F3541400F92F7C = {
@@ -137,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				E21216CB281B1A77001CD70C /* New */,
-				E294205D27FA13950059B82D /* Must be */,
 				E2CEA7D927F3541400F92F7C /* AppDelegate.swift */,
 				E2CEA7DD27F3541400F92F7C /* ViewController.swift */,
 				E2CEA7E227F3541500F92F7C /* Assets.xcassets */,
@@ -238,23 +244,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E294206D27FA1C990059B82D /* ACLoalizedSettings.swift in Sources */,
+				E22797712858963200C5BD6E /* LocalizedObjectProtocol.swift in Sources */,
+				E227976A285892AC00C5BD6E /* LocalizedAttributedString.swift in Sources */,
+				E227976F285895CC00C5BD6E /* UILabel+Localized.swift in Sources */,
 				E2CEA7DE27F3541400F92F7C /* ViewController.swift in Sources */,
-				E2AD1795280DDD14006B6276 /* UIBarButtonItem+ACLocalizedObjectProtocol.swift in Sources */,
-				E294206927FA1C1E0059B82D /* ACLocalizedPropertyProtocol.swift in Sources */,
-				E294206B27FA1C2F0059B82D /* ACLocalizedPicker.swift in Sources */,
-				E294206127FA15D50059B82D /* ACLocalizedStringProtocol.swift in Sources */,
-				E2AD178F280DB7FD006B6276 /* UItextView+ACLocalizedObjectProtocol.swift in Sources */,
-				E2AD1797280DE2BF006B6276 /* UINavigationItem+ACLocalizedObjectProtocol.swift in Sources */,
-				E2AD1791280DB942006B6276 /* UITextField+ACLocalizedObjectProtocol.swift in Sources */,
-				E294206527FA172D0059B82D /* ACLocalizedAttributedString.swift in Sources */,
-				E294206327FA16340059B82D /* ACLocalizedString.swift in Sources */,
+				E22797642858927100C5BD6E /* LocalizedStringProtocol.swift in Sources */,
+				E22797792858AD5E00C5BD6E /* LocalizedStringInterpolation.swift in Sources */,
+				E2AD1795280DDD14006B6276 /* UIBarButtonItem+Localized.swift in Sources */,
+				E22797732858966800C5BD6E /* LocalizedPropertyProtocol.swift in Sources */,
+				E2AD178F280DB7FD006B6276 /* UItextView+Localized.swift in Sources */,
+				E2AD1797280DE2BF006B6276 /* UINavigationItem+Localized.swift in Sources */,
+				E227976C2858941A00C5BD6E /* LocalizedCore.swift in Sources */,
+				E2AD1791280DB942006B6276 /* UITextField+Localized.swift in Sources */,
+				E22797662858928900C5BD6E /* String+LocalizedStringProtocol.swift in Sources */,
 				E2CEA7DA27F3541400F92F7C /* AppDelegate.swift in Sources */,
-				E2AD178D280DB261006B6276 /* UIButton+ACLocalizedObjectProtocol.swift in Sources */,
-				E294206727FA1BFA0059B82D /* ACLocalizedObjectProtocol.swift in Sources */,
-				E294205F27FA139F0059B82D /* ACLocalizedLanguage.swift in Sources */,
-				E2AD178B280DB23B006B6276 /* UILabel+ACLocalizedObjectProtocol.swift in Sources */,
+				E2AD178D280DB261006B6276 /* UIButton+Localized.swift in Sources */,
+				E294205F27FA139F0059B82D /* LocalizedLanguage.swift in Sources */,
+				E22797682858929900C5BD6E /* LocalizedKeyString.swift in Sources */,
 				E21216CD281B1A81001CD70C /* LocalizedString.swift in Sources */,
+				E22797762858973900C5BD6E /* LocalizedPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

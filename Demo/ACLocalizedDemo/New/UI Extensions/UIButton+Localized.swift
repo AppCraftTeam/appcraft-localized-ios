@@ -1,5 +1,5 @@
 //
-//  UIButton+ACLocalizedObjectProtocol.swift
+//  UIButton+Localized.swift
 //  ACLocalizedDemo
 //
 //  Created by Дмитрий Поляков on 18.04.2022.
@@ -8,9 +8,13 @@
 import Foundation
 import UIKit
 
-extension UIButton: ACLocalizedObjectProtocol {
+extension UIButton: LocalizedObjectProtocol {
     
-    enum LocalizedProperty: ACLocalizedPropertyProtocol {
+    public var identifer: String {
+        self.hash.description
+    }
+    
+    enum LocalizedProperty: LocalizedPropertyProtocol {
         case setTitle(state: UIControl.State)
         case setAttributedTitle(state: UIControl.State)
         
@@ -24,14 +28,14 @@ extension UIButton: ACLocalizedObjectProtocol {
         }
     }
     
-    public func localize(_ property: ACLocalizedPropertyProtocol, localized: ACLocalizedStringProtocol?) {
+    public func localize(_ property: LocalizedPropertyProtocol, localized: LocalizedStringProtocol?) {
         guard let property = property as? LocalizedProperty else { return }
         
         switch property {
         case let .setTitle(state):
-            self.setTitle(localized?.toLocalizedString(), for: state)
+            self.setTitle(localized?.toString(), for: state)
         case let .setAttributedTitle(state):
-            self.setAttributedTitle(localized?.toLocalizedAttributedString(), for: state)
+            self.setAttributedTitle(localized?.toAttributedString(), for: state)
         }
     }
     
@@ -40,11 +44,11 @@ extension UIButton: ACLocalizedObjectProtocol {
 // MARK: - TitleLocalized
 public extension UIButton {
     
-    func setTitleLocalized(_ title: ACLocalizedString?, for state: UIControl.State) {
+    func setTitleLocalized(_ title: LocalizedString?, for state: UIControl.State) {
         self.setLocalized(title, for: LocalizedProperty.setTitle(state: state))
     }
     
-    func getTitleLocalized(_ title: ACLocalizedString?, for state: UIControl.State) -> ACLocalizedString? {
+    func getTitleLocalized(_ title: LocalizedString?, for state: UIControl.State) -> LocalizedString? {
         self.getLocalized(for: LocalizedProperty.setTitle(state: state))
     }
     
@@ -53,11 +57,11 @@ public extension UIButton {
 // MARK: - AttributedTitleLocalized
 public extension UIButton {
     
-    func setAttributedTitleLocalized(_ title: ACLocalizedAttributedString?, for state: UIControl.State) {
+    func setAttributedTitleLocalized(_ title: LocalizedAttributedString?, for state: UIControl.State) {
         self.setLocalized(title, for: LocalizedProperty.setAttributedTitle(state: state))
     }
     
-    func getAttributedTitleLocalized(_ title: ACLocalizedAttributedString?, for state: UIControl.State) -> ACLocalizedAttributedString? {
+    func getAttributedTitleLocalized(_ title: LocalizedAttributedString?, for state: UIControl.State) -> LocalizedAttributedString? {
         self.getLocalized(for: LocalizedProperty.setAttributedTitle(state: state))
     }
     

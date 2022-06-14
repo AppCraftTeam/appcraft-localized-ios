@@ -1,19 +1,23 @@
 //
-//  UItextView+ACLocalizedObjectProtocol.swift
+//  UILabel+Localized.swift
 //  ACLocalizedDemo
 //
-//  Created by Дмитрий Поляков on 18.04.2022.
+//  Created by Дмитрий Поляков on 14.06.2022.
 //
 
 import Foundation
 import UIKit
 
-extension UITextView: ACLocalizedObjectProtocol {
+extension UILabel: LocalizedObjectProtocol {
     
-    enum LocalizedProperty: ACLocalizedPropertyProtocol {
+    public var identifer: String {
+        self.hash.description
+    }
+    
+    enum LocalizedProperty: LocalizedPropertyProtocol {
         case text
         case attributedText
-        
+
         var identifer: String {
             switch self {
             case .text:
@@ -23,38 +27,36 @@ extension UITextView: ACLocalizedObjectProtocol {
             }
         }
     }
-    
-    public func localize(_ property: ACLocalizedPropertyProtocol, localized: ACLocalizedStringProtocol?) {
+
+    public func localize(_ property: LocalizedPropertyProtocol, localized: LocalizedStringProtocol?) {
         guard let property = property as? LocalizedProperty else { return }
-        
+
         switch property {
         case .text:
-            self.text = localized?.toLocalizedString()
+            self.text = localized?.toString()
         case .attributedText:
-            self.attributedText = localized?.toLocalizedAttributedString()
+            self.attributedText = localized?.toAttributedString()
         }
     }
-    
+
 }
 
 // MARK: - TextLocalized
-public extension UITextView {
-    
-    var textLocalized: ACLocalizedString? {
+public extension UILabel {
+
+    var textLocalized: LocalizedString? {
         get { self.getLocalized(for: LocalizedProperty.text) }
         set { self.setLocalized(newValue, for: LocalizedProperty.text) }
     }
-    
+
 }
 
 // MARK: - AttributedTextLocalized
-public extension UITextView {
-    
-    var attributedTextLocalized: ACLocalizedAttributedString? {
+public extension UILabel {
+
+    var attributedTextLocalized: LocalizedAttributedString? {
         get { self.getLocalized(for: LocalizedProperty.attributedText) }
         set { self.setLocalized(newValue, for: LocalizedProperty.attributedText) }
     }
-    
+
 }
-
-

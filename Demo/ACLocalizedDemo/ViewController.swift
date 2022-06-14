@@ -54,13 +54,13 @@ class ViewController: UIViewController {
         
         self.view.backgroundColor = .white
         
-//        self.navigationItem.titleLocalized = "dfdg \(localized: ACLocalizedString.nav_title(1)) \(string: 1.description)"
+        self.navigationItem.titleLocalized = "dfdg \(LocalizedString.nav_title(1)) \(1)"
         
 //        self.navigationItem.titleLocalized = .nav_title(self.navigationController?.viewControllers.count ?? 0)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(titleLocalized: .next(), style: .plain, target: self, action: #selector(self.tapNext))
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(titleLocalized: .next(), style: .plain, target: self, action: #selector(self.tapNext))
     
         let changeLocalizedButton = UIButton(type: .system)
-//        changeLocalizedButton.setTitleLocalized(.change_localized(), for: .normal)
+        changeLocalizedButton.setTitleLocalized(.change_localized(), for: .normal)
         changeLocalizedButton.addTarget(self, action: #selector(self.tapBt), for: .touchUpInside)
         
         let stackView = UIStackView(arrangedSubviews: [
@@ -88,20 +88,21 @@ class ViewController: UIViewController {
 //            .backgroundColor: UIColor.red,
 //            .foregroundColor: UIColor.gray
 //        ])
-        print("!!!", ACLocalizedString.text().toLocalizedString())
+//        print("!!!", ACLocalizedString.text().toLocalizedString())
         
 //        self.label.textLocalized = .test()
 //        self.label.textLocalized = .text()
         
-        self.label.text = ACLocalizedString.text().toLocalizedString()
-        changeLocalizedButton.setTitle(ACLocalizedString.change_localized().toLocalizedString(), for: .normal)
+//        self.label.text = ACLocalizedString.text().toLocalizedString()
+//        changeLocalizedButton.setTitle(ACLocalizedString.change_localized().toLocalizedString(), for: .normal)
         
+        self.label.textLocalized = .text()
     }
     
     @objc
     private func tapBt() {
-        ACLocalizedSettings.language = ACLocalizedSettings.language == .en ? .ru : .en
-        UIApplication.shared.windows.forEach({ $0.reload() })
+        LocalizedCore.shared.language = LocalizedCore.shared.language == .en ? .ru : .en
+//        UIApplication.shared.windows.forEach({ $0.reload() })
     }
     
     @objc
@@ -129,70 +130,70 @@ class ViewController: UIViewController {
 
 }
 
-extension ACLocalizedLanguage {
-    static let en = ACLocalizedLanguage("en")
-    static let ru = ACLocalizedLanguage("ru")
+extension LocalizedLanguage {
+    static let en = LocalizedLanguage("en")
+    static let ru = LocalizedLanguage("ru")
 }
 
-extension ACLocalizedString {
+extension LocalizedString {
     
-    static func test() -> ACLocalizedString {
-        .init("test", "Localized")
+    static func test() -> LocalizedString {
+        .init(key: "test", table: "Localized")
     }
     
-    static func change_localized() -> ACLocalizedString {
-        .init("change_localized", "Localized")
+    static func change_localized() -> LocalizedString {
+        .init(key: "change_localized", table: "Localized")
     }
     
-    static func text() -> ACLocalizedString {
-        .init("text", "Localized")
+    static func text() -> LocalizedString {
+        .init(key: "text", table: "Localized")
     }
     
-    static func placeholder() -> ACLocalizedString {
-        .init("placeholder", "Localized")
+    static func placeholder() -> LocalizedString {
+        .init(key: "placeholder", table: "Localized")
     }
     
-    static func done() -> ACLocalizedString {
-        .init("done", "Localized")
+    static func done() -> LocalizedString {
+        .init(key: "done", table: "Localized")
     }
     
-    static func nav_title(_ a1: Int) -> ACLocalizedString {
-        .init("nav_title", "Localized", a1)
+    static func nav_title(_ a1: Int) -> LocalizedString {
+        .init(key: "nav_title", table: "Localized", args: a1)
     }
     
-    static func next() -> ACLocalizedString {
-        .init("next", "Localized")
+    static func next() -> LocalizedString {
+        .init(key: "next", table: "Localized")
     }
     
 }
 
-public extension UIWindow {
+//public extension UIWindow {
+//
+//    /// Unload all views and add them back
+//    /// Used for applying `UIAppearance` changes to existing views
+//    func reload() {
+////        subviews.forEach { view in
+////            view.removeFromSuperview()
+////            addSubview(view)
+////        }
+//        print("!!! reload")
+////        let root = self.rootViewController
+////        self.rootViewController = root
+//
+//        self.rootViewController?.reload()
+//
+//    }
+//}
 
-    /// Unload all views and add them back
-    /// Used for applying `UIAppearance` changes to existing views
-    func reload() {
-//        subviews.forEach { view in
-//            view.removeFromSuperview()
-//            addSubview(view)
+//extension UIViewController {
+//
+//    func reload() {
+//        self.view.subviews.forEach { subview in
+//            subview.removeFromSuperview()
+//            view.addSubview(subview)
 //        }
-        print("!!! reload")
-//        let root = self.rootViewController
-//        self.rootViewController = root
-        
-        self.rootViewController?.reload()
-        
-    }
-}
-
-extension UIViewController {
-    
-    func reload() {
-        self.view.subviews.forEach { subview in
-            subview.removeFromSuperview()
-            view.addSubview(subview)
-        }
-        
-        self.children.forEach({ $0.reload() })
-    }
-    
-}
+//
+//        self.children.forEach({ $0.reload() })
+//    }
+//
+//}
