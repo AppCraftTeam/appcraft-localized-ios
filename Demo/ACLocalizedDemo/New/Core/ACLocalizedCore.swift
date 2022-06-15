@@ -1,5 +1,5 @@
 //
-//  LocalizedCore.swift
+//  ACLocalizedCore.swift
 //  ACLocalizedDemo
 //
 //  Created by Дмитрий Поляков on 14.06.2022.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-public class LocalizedCore {
+public class ACLocalizedCore {
     
     // MARK: - Props
-    public static let shared = LocalizedCore()
+    public static let shared = ACLocalizedCore()
     
     private let languageUserDefaultsKey: String = "languageUserDefaultsKey"
     
@@ -24,10 +24,10 @@ public class LocalizedCore {
         return bundle
     }
     
-    public var language: LocalizedLanguage? {
+    public var language: ACLocalizedLanguage? {
         get {
             guard let identifer = UserDefaults.standard.string(forKey: self.languageUserDefaultsKey) else { return nil }
-            return LocalizedLanguage(identifer)
+            return ACLocalizedLanguage(identifer)
         }
         set {
             if let value = newValue {
@@ -41,17 +41,17 @@ public class LocalizedCore {
         }
     }
     
-    private var pickers: [LocalizedPicker] = []
+    private var pickers: [ACLocalizedPicker] = []
     
-    func getPicker(object: LocalizedObjectProtocol, property: LocalizedPropertyProtocol) -> LocalizedPicker? {
+    func getPicker(object: ACLocalizedObjectProtocol, property: ACLocalizedPropertyProtocol) -> ACLocalizedPicker? {
         self.pickers.first(where: { $0.object?.identifer == object.identifer && $0.property.identifer == property.identifer })
     }
 
-    func setPicker(object: LocalizedObjectProtocol, property: LocalizedPropertyProtocol, localized: LocalizedStringProtocol?) {
+    func setPicker(object: ACLocalizedObjectProtocol, property: ACLocalizedPropertyProtocol, localized: ACLocalizedStringProtocol?) {
         self.pickers.removeAllIfExist(forObject: object, andProperty: property)
 
         guard let localized = localized else { return }
-        self.pickers += [LocalizedPicker(object, property: property, localized: localized)]
+        self.pickers += [ACLocalizedPicker(object, property: property, localized: localized)]
     }
     
 }

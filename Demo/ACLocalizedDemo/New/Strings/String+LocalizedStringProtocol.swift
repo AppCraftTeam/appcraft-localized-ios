@@ -1,5 +1,5 @@
 //
-//  String+LocalizedStringProtocol.swift
+//  String+ACLocalizedStringProtocol.swift
 //  ACLocalizedDemo
 //
 //  Created by Дмитрий Поляков on 14.06.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String: LocalizedStringProtocol {
+extension String: ACLocalizedStringProtocol {
     
     public func toString() -> String {
         self

@@ -1,5 +1,5 @@
 //
-//  LocalizedKeyString.swift
+//  ACLocalizedKeyString.swift
 //  ACLocalizedDemo
 //
 //  Created by Дмитрий Поляков on 14.06.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct LocalizedKeyString {
+public struct ACLocalizedKeyString {
     
     // MARK: - Init
     public init(key: String, table: String, args: CVarArg...) {
@@ -23,10 +23,10 @@ public struct LocalizedKeyString {
 }
 
 // MARK: - LocalizedStringProtocol
-extension LocalizedKeyString: LocalizedStringProtocol {
+extension ACLocalizedKeyString: ACLocalizedStringProtocol {
     
     public func toString() -> String {
-        let format = LocalizedCore.shared.bundle.localizedString(forKey: self.key, value: nil, table: self.table)
+        let format = ACLocalizedCore.shared.bundle.localizedString(forKey: self.key, value: nil, table: self.table)
         return String(format: format, locale: Locale.current, arguments: self.args)
     }
     

@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-extension UIBarButtonItem: LocalizedObjectProtocol {
+extension UIBarButtonItem: ACLocalizedObjectProtocol {
     
     public var identifer: String {
         self.hash.description
     }
     
-    enum LocalizedProperty: LocalizedPropertyProtocol {
+    enum LocalizedProperty: ACLocalizedPropertyProtocol {
         case title
         
         var identifer: String {
@@ -25,7 +25,7 @@ extension UIBarButtonItem: LocalizedObjectProtocol {
         }
     }
     
-    public func localize(_ property: LocalizedPropertyProtocol, localized: LocalizedStringProtocol?) {
+    public func localize(_ property: ACLocalizedPropertyProtocol, localized: ACLocalizedStringProtocol?) {
         guard let property = property as? LocalizedProperty else { return }
         
         switch property {
@@ -40,19 +40,19 @@ extension UIBarButtonItem: LocalizedObjectProtocol {
 public extension UIBarButtonItem {
     
     // MARK: - Init
-    convenience init(titleLocalized: LocalizedString?, style: UIBarButtonItem.Style, target: Any?, action: Selector?) {
+    convenience init(titleLocalized: ACLocalizedString?, style: UIBarButtonItem.Style, target: Any?, action: Selector?) {
         self.init(title: titleLocalized?.toString(), style: style, target: target, action: action)
         self.titleLocalized = titleLocalized
     }
     
     @available(iOS 14.0, *)
-    convenience init(titleLocalized: LocalizedString? = nil, image: UIImage? = nil, primaryAction: UIAction? = nil, menu: UIMenu? = nil) {
+    convenience init(titleLocalized: ACLocalizedString? = nil, image: UIImage? = nil, primaryAction: UIAction? = nil, menu: UIMenu? = nil) {
         self.init(title: titleLocalized?.toString(), image: image, primaryAction: primaryAction, menu: menu)
         self.titleLocalized = titleLocalized
     }
     
     // MARK: - Props
-    var titleLocalized: LocalizedString? {
+    var titleLocalized: ACLocalizedString? {
         get { self.getLocalized(for: LocalizedProperty.title) }
         set { self.setLocalized(newValue, for: LocalizedProperty.title) }
     }

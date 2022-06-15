@@ -1,5 +1,5 @@
 //
-//  LocalizedAttributedString.swift
+//  ACLocalizedAttributedString.swift
 //  ACLocalizedDemo
 //
 //  Created by Дмитрий Поляков on 14.06.2022.
@@ -7,21 +7,21 @@
 
 import Foundation
 
-public struct LocalizedAttributedString {
+public struct ACLocalizedAttributedString {
     
     // MARK: - Init
-    public init(string: LocalizedStringProtocol, attributes: [NSAttributedString.Key: Any]?) {
+    public init(string: ACLocalizedStringProtocol, attributes: [NSAttributedString.Key: Any]?) {
         self.string = string
         self.attributes = attributes
     }
     
     // MARK: - Init
-    public let string: LocalizedStringProtocol
+    public let string: ACLocalizedStringProtocol
     public let attributes: [NSAttributedString.Key: Any]?
 }
 
 // MARK: - LocalizedStringProtocol
-extension LocalizedAttributedString: LocalizedStringProtocol {
+extension ACLocalizedAttributedString: ACLocalizedStringProtocol {
     
     public func toString() -> String {
         self.string.toString()

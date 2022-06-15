@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct LocalizedStringInterpolation: StringInterpolationProtocol {
+public struct ACLocalizedStringInterpolation: StringInterpolationProtocol {
     
     // MARK: - Init
     public init(literalCapacity: Int, interpolationCount: Int) {
@@ -15,7 +15,7 @@ public struct LocalizedStringInterpolation: StringInterpolationProtocol {
     }
     
     // MARK: - Props
-    public private(set) var strings: [LocalizedStringProtocol]
+    public private(set) var strings: [ACLocalizedStringProtocol]
 
     // MARK: - Methods
     public mutating func appendLiteral(_ literal: StringLiteralType) {
@@ -24,7 +24,7 @@ public struct LocalizedStringInterpolation: StringInterpolationProtocol {
 
     public mutating func appendInterpolation<T: CustomStringConvertible>(_ value: T) {
         switch value {
-        case let localizedString as LocalizedStringProtocol:
+        case let localizedString as ACLocalizedStringProtocol:
             self.strings += [localizedString]
         default:
             self.strings += [value.description]

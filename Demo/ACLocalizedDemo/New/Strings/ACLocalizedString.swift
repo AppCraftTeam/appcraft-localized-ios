@@ -1,5 +1,5 @@
 //
-//  LocalizedString.swift
+//  ACLocalizedString.swift
 //  ACLocalizedDemo
 //
 //  Created by Дмитрий Поляков on 28.04.2022.
@@ -7,37 +7,37 @@
 
 import Foundation
 
-public struct LocalizedString {
+public struct ACLocalizedString {
     
     // MARK: - Init
-    public init(strings: [LocalizedStringProtocol]) {
+    public init(strings: [ACLocalizedStringProtocol]) {
         self.strings = strings
     }
     
     public init(key: String, table: String, args: CVarArg...) {
-        let string = LocalizedKeyString(key: key, table: table, args: args)
+        let string = ACLocalizedKeyString(key: key, table: table, args: args)
         self.init(strings: [ string ])
     }
     
-    public init(string: LocalizedStringProtocol, attributes: [NSAttributedString.Key: Any]?) {
-        let string = LocalizedAttributedString(string: string, attributes: attributes)
+    public init(string: ACLocalizedStringProtocol, attributes: [NSAttributedString.Key: Any]?) {
+        let string = ACLocalizedAttributedString(string: string, attributes: attributes)
         self.init(strings: [ string ])
     }
     
     // MARK: - Props
-    public var strings: [LocalizedStringProtocol]
+    public var strings: [ACLocalizedStringProtocol]
     
-    public static func + (lhs: LocalizedString, rhs: LocalizedString) -> LocalizedString {
-        LocalizedString(strings: lhs.strings + rhs.strings)
+    public static func + (lhs: ACLocalizedString, rhs: ACLocalizedString) -> ACLocalizedString {
+        ACLocalizedString(strings: lhs.strings + rhs.strings)
     }
     
-    public static func += (lhs: inout LocalizedString, rhs: LocalizedString) {
+    public static func += (lhs: inout ACLocalizedString, rhs: ACLocalizedString) {
         lhs.strings += rhs.strings
     }
 }
 
 // MARK: - LocalizedStringProtocol
-extension LocalizedString: LocalizedStringProtocol {
+extension ACLocalizedString: ACLocalizedStringProtocol {
     
     public func toString() -> String {
         self.strings.reduce("", { $0 + $1.toString() })
@@ -53,7 +53,7 @@ extension LocalizedString: LocalizedStringProtocol {
 }
 
 // MARK: - CustomStringConvertible
-extension LocalizedString: CustomStringConvertible {
+extension ACLocalizedString: CustomStringConvertible {
     
     public var description: String {
         self.toString()
@@ -62,7 +62,7 @@ extension LocalizedString: CustomStringConvertible {
 }
 
 // MARK: - ExpressibleByStringLiteral
-extension LocalizedString: ExpressibleByStringLiteral {
+extension ACLocalizedString: ExpressibleByStringLiteral {
     
     public init(stringLiteral value: String) {
         self.strings = [value]
@@ -71,9 +71,9 @@ extension LocalizedString: ExpressibleByStringLiteral {
 }
 
 // MARK: - ExpressibleByStringInterpolation
-extension LocalizedString: ExpressibleByStringInterpolation {
+extension ACLocalizedString: ExpressibleByStringInterpolation {
     
-    public typealias StringInterpolation = LocalizedStringInterpolation
+    public typealias StringInterpolation = ACLocalizedStringInterpolation
 
     public init(stringInterpolation: StringInterpolation) {
        self.strings = stringInterpolation.strings

@@ -1,5 +1,5 @@
 //
-//  LocalizedLanguage.swift
+//  ACLocalizedLanguage.swift
 //  ACLocalizedDemo
 //
 //  Created by Дмитрий Поляков on 03.04.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct LocalizedLanguage {
+public struct ACLocalizedLanguage {
 
     // MARK: - Init
     public init(_ identifer: String) {
@@ -19,7 +19,7 @@ public struct LocalizedLanguage {
 }
 
 // MARK: - Equatable
-extension LocalizedLanguage: Equatable {
+extension ACLocalizedLanguage: Equatable {
     
     public static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.identifer == rhs.identifer
@@ -28,7 +28,7 @@ extension LocalizedLanguage: Equatable {
 }
 
 // MARK: - CustomStringConvertible
-extension LocalizedLanguage: CustomStringConvertible {
+extension ACLocalizedLanguage: CustomStringConvertible {
     
     public var description: String {
         self.identifer

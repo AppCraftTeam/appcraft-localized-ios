@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-extension UILabel: LocalizedObjectProtocol {
+extension UILabel: ACLocalizedObjectProtocol {
     
     public var identifer: String {
         self.hash.description
     }
     
-    enum LocalizedProperty: LocalizedPropertyProtocol {
+    enum LocalizedProperty: ACLocalizedPropertyProtocol {
         case text
         case attributedText
 
@@ -28,7 +28,7 @@ extension UILabel: LocalizedObjectProtocol {
         }
     }
 
-    public func localize(_ property: LocalizedPropertyProtocol, localized: LocalizedStringProtocol?) {
+    public func localize(_ property: ACLocalizedPropertyProtocol, localized: ACLocalizedStringProtocol?) {
         guard let property = property as? LocalizedProperty else { return }
 
         switch property {
@@ -44,7 +44,7 @@ extension UILabel: LocalizedObjectProtocol {
 // MARK: - TextLocalized
 public extension UILabel {
 
-    var textLocalized: LocalizedString? {
+    var textLocalized: ACLocalizedString? {
         get { self.getLocalized(for: LocalizedProperty.text) }
         set { self.setLocalized(newValue, for: LocalizedProperty.text) }
     }
@@ -54,7 +54,7 @@ public extension UILabel {
 // MARK: - AttributedTextLocalized
 public extension UILabel {
 
-    var attributedTextLocalized: LocalizedAttributedString? {
+    var attributedTextLocalized: ACLocalizedString? {
         get { self.getLocalized(for: LocalizedProperty.attributedText) }
         set { self.setLocalized(newValue, for: LocalizedProperty.attributedText) }
     }
