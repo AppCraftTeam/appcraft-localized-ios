@@ -15,11 +15,11 @@ public protocol ACLocalizedObjectProtocol: AnyObject {
 
 public extension ACLocalizedObjectProtocol {
 
-    func getLocalized<T: ACLocalizedStringProtocol>(for property: ACLocalizedPropertyProtocol) -> T? {
+    func getLocalizedString<T: ACLocalizedStringProtocol>(for property: ACLocalizedPropertyProtocol) -> T? {
         ACLocalizedCore.shared.getPicker(object: self, property: property)?.localized as? T
     }
 
-    func setLocalized(_ localized: ACLocalizedStringProtocol?, for property: ACLocalizedPropertyProtocol) {
+    func setLocalizedString(_ localized: ACLocalizedStringProtocol?, for property: ACLocalizedPropertyProtocol) {
         ACLocalizedCore.shared.setPicker(object: self, property: property, localized: localized)
         self.localize(property, localized: localized)
     }

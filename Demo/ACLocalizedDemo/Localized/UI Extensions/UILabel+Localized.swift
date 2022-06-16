@@ -44,8 +44,8 @@ import UIKit
 //public extension UILabel {
 //
 //    var textLocalized: ACLocalizedString? {
-//        get { self.getLocalized(for: LocalizedProperty.text) }
-//        set { self.setLocalized(newValue, for: LocalizedProperty.text) }
+//        get { self.getLocalizedString(for: LocalizedProperty.text) }
+//        set { self.setLocalizedString(newValue, for: LocalizedProperty.text) }
 //    }
 //
 //}
@@ -53,8 +53,8 @@ import UIKit
 //public extension UILabel {
 //
 //    var attributedTextLocalized: ACLocalizedString? {
-//        get { self.getLocalized(for: LocalizedProperty.attributedText) }
-//        set { self.setLocalized(newValue, for: LocalizedProperty.attributedText) }
+//        get { self.getLocalizedString(for: LocalizedProperty.attributedText) }
+//        set { self.setLocalizedString(newValue, for: LocalizedProperty.attributedText) }
 //    }
 //
 //}

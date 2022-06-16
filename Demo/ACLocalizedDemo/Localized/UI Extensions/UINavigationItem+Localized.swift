@@ -44,8 +44,8 @@ extension UINavigationItem: ACLocalizedObjectProtocol {
 public extension UINavigationItem {
     
     var titleLocalized: ACLocalizedString? {
-        get { self.getLocalized(for: LocalizedProperty.title) }
-        set { self.setLocalized(newValue, for: LocalizedProperty.title) }
+        get { self.getLocalizedString(for: LocalizedProperty.title) }
+        set { self.setLocalizedString(newValue, for: LocalizedProperty.title) }
     }
     
 }
@@ -53,8 +53,8 @@ public extension UINavigationItem {
 public extension UINavigationItem {
     
     var backButtonTitleLocalized: ACLocalizedString? {
-        get { self.getLocalized(for: LocalizedProperty.backButtonTitle) }
-        set { self.setLocalized(newValue, for: LocalizedProperty.backButtonTitle) }
+        get { self.getLocalizedString(for: LocalizedProperty.backButtonTitle) }
+        set { self.setLocalizedString(newValue, for: LocalizedProperty.backButtonTitle) }
     }
     
 }

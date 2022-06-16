@@ -54,8 +54,8 @@ extension UITextField: ACLocalizedObjectProtocol {
 public extension UITextField {
     
     var textLocalized: ACLocalizedString? {
-        get { self.getLocalized(for: LocalizedProperty.text) }
-        set { self.setLocalized(newValue, for: LocalizedProperty.text) }
+        get { self.getLocalizedString(for: LocalizedProperty.text) }
+        set { self.setLocalizedString(newValue, for: LocalizedProperty.text) }
     }
     
 }
@@ -63,8 +63,8 @@ public extension UITextField {
 public extension UITextField {
     
     var attributedTextLocalized: ACLocalizedString? {
-        get { self.getLocalized(for: LocalizedProperty.attributedText) }
-        set { self.setLocalized(newValue, for: LocalizedProperty.attributedText) }
+        get { self.getLocalizedString(for: LocalizedProperty.attributedText) }
+        set { self.setLocalizedString(newValue, for: LocalizedProperty.attributedText) }
     }
     
 }
@@ -72,8 +72,8 @@ public extension UITextField {
 public extension UITextField {
     
     var placeholderLocalized: ACLocalizedString? {
-        get { self.getLocalized(for: LocalizedProperty.placeholder) }
-        set { self.setLocalized(newValue, for: LocalizedProperty.placeholder) }
+        get { self.getLocalizedString(for: LocalizedProperty.placeholder) }
+        set { self.setLocalizedString(newValue, for: LocalizedProperty.placeholder) }
     }
     
 }
@@ -81,8 +81,8 @@ public extension UITextField {
 public extension UITextField {
     
     var attributedPlaceholderLocalized: ACLocalizedString? {
-        get { self.getLocalized(for: LocalizedProperty.attributedPlaceholder) }
-        set { self.setLocalized(newValue, for: LocalizedProperty.attributedPlaceholder) }
+        get { self.getLocalizedString(for: LocalizedProperty.attributedPlaceholder) }
+        set { self.setLocalizedString(newValue, for: LocalizedProperty.attributedPlaceholder) }
     }
     
 }

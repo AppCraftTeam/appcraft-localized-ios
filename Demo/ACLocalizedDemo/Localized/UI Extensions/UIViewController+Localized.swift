@@ -39,8 +39,8 @@ extension UIViewController: ACLocalizedObjectProtocol {
 public extension UIViewController {
     
     var titleLocalized: ACLocalizedString? {
-        get { self.getLocalized(for: LocalizedProperty.title) }
-        set { self.setLocalized(newValue, for: LocalizedProperty.title) }
+        get { self.getLocalizedString(for: LocalizedProperty.title) }
+        set { self.setLocalizedString(newValue, for: LocalizedProperty.title) }
     }
     
 }

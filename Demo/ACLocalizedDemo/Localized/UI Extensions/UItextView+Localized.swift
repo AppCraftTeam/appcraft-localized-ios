@@ -41,8 +41,8 @@
 //public extension UITextView {
 //    
 //    var textLocalized: ACLocalizedString? {
-//        get { self.getLocalized(for: LocalizedProperty.text) }
-//        set { self.setLocalized(newValue, for: LocalizedProperty.text) }
+//        get { self.getLocalizedString(for: LocalizedProperty.text) }
+//        set { self.setLocalizedString(newValue, for: LocalizedProperty.text) }
 //    }
 //    
 //}

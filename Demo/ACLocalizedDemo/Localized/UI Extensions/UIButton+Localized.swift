@@ -44,11 +44,11 @@ extension UIButton: ACLocalizedObjectProtocol {
 public extension UIButton {
     
     func setTitleLocalized(_ title: ACLocalizedString?, for state: UIControl.State) {
-        self.setLocalized(title, for: LocalizedProperty.setTitle(state: state))
+        self.setLocalizedString(title, for: LocalizedProperty.setTitle(state: state))
     }
     
     func getTitleLocalized(_ title: ACLocalizedString?, for state: UIControl.State) -> ACLocalizedString? {
-        self.getLocalized(for: LocalizedProperty.setTitle(state: state))
+        self.getLocalizedString(for: LocalizedProperty.setTitle(state: state))
     }
     
 }
@@ -56,11 +56,11 @@ public extension UIButton {
 public extension UIButton {
     
     func setAttributedTitleLocalized(_ title: ACLocalizedString?, for state: UIControl.State) {
-        self.setLocalized(title, for: LocalizedProperty.setAttributedTitle(state: state))
+        self.setLocalizedString(title, for: LocalizedProperty.setAttributedTitle(state: state))
     }
     
     func getAttributedTitleLocalized(_ title: ACLocalizedString?, for state: UIControl.State) -> ACLocalizedAttributedString? {
-        self.getLocalized(for: LocalizedProperty.setAttributedTitle(state: state))
+        self.getLocalizedString(for: LocalizedProperty.setAttributedTitle(state: state))
     }
     
 }
