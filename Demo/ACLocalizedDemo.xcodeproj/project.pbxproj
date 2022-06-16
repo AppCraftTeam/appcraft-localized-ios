@@ -98,14 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E21216CB281B1A77001CD70C /* New */ = {
+		E21216CB281B1A77001CD70C /* Localized */ = {
 			isa = PBXGroup;
 			children = (
 				E22797772858A00300C5BD6E /* Core */,
 				E2279774285896D100C5BD6E /* Strings */,
 				E227976D285895BC00C5BD6E /* UI Extensions */,
 			);
-			path = New;
+			path = Localized;
 			sourceTree = "<group>";
 		};
 		E227976D285895BC00C5BD6E /* UI Extensions */ = {
@@ -208,7 +208,7 @@
 			children = (
 				E2AE0472285A12900037FCC3 /* ApplicationLayer */,
 				E2AE0493285A27260037FCC3 /* Componetns */,
-				E21216CB281B1A77001CD70C /* New */,
+				E21216CB281B1A77001CD70C /* Localized */,
 				E2AE0470285A12720037FCC3 /* SupportLayer */,
 			);
 			path = ACLocalizedDemo;

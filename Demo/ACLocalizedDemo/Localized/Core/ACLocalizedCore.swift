@@ -36,8 +36,7 @@ public class ACLocalizedCore {
                 UserDefaults.standard.removeObject(forKey: self.languageUserDefaultsKey)
             }
 
-            self.pickers.removeAll(where: { $0.object == nil })
-            self.pickers.forEach({ $0.localize() })
+            self.localize()
         }
     }
     
@@ -52,6 +51,33 @@ public class ACLocalizedCore {
 
         guard let localized = localized else { return }
         self.pickers += [ACLocalizedPicker(object, property: property, localized: localized)]
+    }
+    
+    private var localizedObjects = NSHashTable<AnyObject>(options: .weakMemory)
+    
+    private func localize() {
+        self.pickers.removeAll(where: { $0.object == nil })
+        self.pickers.forEach({ $0.localize() })
+        
+        let objects = self.localizedObjects.allObjects
+        
+        objects.forEach {
+            guard let object = $0 as? ACLocalizedWrapperStoreble else { return }
+            
+            object.localizedWrappers.forEach {
+                object.applyLocalize(fromWrapper: $0)
+            }
+            object.applyLocalize()
+        }
+    }
+    
+    func registerLocalizedObject(_ object: ACLocalizedWrapperStoreble) {
+        self.unregisterLocalizedObject(object)
+        self.localizedObjects.add(object)
+    }
+    
+    func unregisterLocalizedObject(_ object: ACLocalizedWrapperStoreble) {
+        self.localizedObjects.remove(object)
     }
     
 }
