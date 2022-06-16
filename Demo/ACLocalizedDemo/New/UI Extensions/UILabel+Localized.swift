@@ -41,7 +41,6 @@ extension UILabel: ACLocalizedObjectProtocol {
 
 }
 
-// MARK: - TextLocalized
 public extension UILabel {
 
     var textLocalized: ACLocalizedString? {
@@ -51,7 +50,6 @@ public extension UILabel {
 
 }
 
-// MARK: - AttributedTextLocalized
 public extension UILabel {
 
     var attributedTextLocalized: ACLocalizedString? {

@@ -1,14 +1,14 @@
 //
-//  UINavigationItem+Localized.swift
+//  UIViewController+Localized.swift
 //  ACLocalizedDemo
 //
-//  Created by Дмитрий Поляков on 18.04.2022.
+//  Created by Дмитрий Поляков on 16.06.2022.
 //
 
 import Foundation
 import UIKit
 
-extension UINavigationItem: ACLocalizedObjectProtocol {
+extension UIViewController: ACLocalizedObjectProtocol {
     
     public var identifer: String {
         self.hash.description
@@ -16,14 +16,11 @@ extension UINavigationItem: ACLocalizedObjectProtocol {
     
     enum LocalizedProperty: ACLocalizedPropertyProtocol {
         case title
-        case backButtonTitle
         
         var identifer: String {
             switch self {
             case .title:
                 return "title"
-            case .backButtonTitle:
-                return "backButtonTitle"
             }
         }
     }
@@ -34,27 +31,16 @@ extension UINavigationItem: ACLocalizedObjectProtocol {
         switch property {
         case .title:
             self.title = localized?.toString()
-        case .backButtonTitle:
-            self.backButtonTitle = localized?.toString()
         }
     }
     
 }
 
-public extension UINavigationItem {
+public extension UIViewController {
     
     var titleLocalized: ACLocalizedString? {
         get { self.getLocalized(for: LocalizedProperty.title) }
         set { self.setLocalized(newValue, for: LocalizedProperty.title) }
-    }
-    
-}
-
-public extension UINavigationItem {
-    
-    var backButtonTitleLocalized: ACLocalizedString? {
-        get { self.getLocalized(for: LocalizedProperty.backButtonTitle) }
-        set { self.setLocalized(newValue, for: LocalizedProperty.backButtonTitle) }
     }
     
 }

@@ -32,19 +32,18 @@ class SettingsLangButton: UIButton {
     // MARK: - Methods
     private func setupComponents() {
         self.layer.cornerRadius = 12
-        #warning("localized")
-        switch lang {
-        case .ru:
-            self.setTitleLocalized("ru", for: .normal)
-        case .en:
-            self.setTitleLocalized("en", for: .normal)
-        default:
-            break
-        }
-        
         self.setTitleColor(.black, for: .normal)
         self.backgroundColor = self.isChecked ? .lightGray : .clear
         self.addTarget(self, action: #selector(self.handleTap), for: .touchUpInside)
+        
+        switch lang {
+        case .ru:
+            self.setTitleLocalized(.lang_ru(), for: .normal)
+        case .en:
+            self.setTitleLocalized(.lang_en(), for: .normal)
+        default:
+            break
+        }
     }
     
     @objc

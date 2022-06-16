@@ -51,7 +51,6 @@ extension UITextField: ACLocalizedObjectProtocol {
     
 }
 
-// MARK: - TextLocalized
 public extension UITextField {
     
     var textLocalized: ACLocalizedString? {
@@ -61,7 +60,6 @@ public extension UITextField {
     
 }
 
-// MARK: - AttributedTextLocalized
 public extension UITextField {
     
     var attributedTextLocalized: ACLocalizedString? {
@@ -71,7 +69,6 @@ public extension UITextField {
     
 }
 
-// MARK: - PlaceholderLocalized
 public extension UITextField {
     
     var placeholderLocalized: ACLocalizedString? {
@@ -81,7 +78,6 @@ public extension UITextField {
     
 }
 
-// MARK: - AttributedPlaceholderLocalized
 public extension UITextField {
     
     var attributedPlaceholderLocalized: ACLocalizedString? {

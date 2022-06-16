@@ -41,7 +41,6 @@ extension UIButton: ACLocalizedObjectProtocol {
     
 }
 
-// MARK: - TitleLocalized
 public extension UIButton {
     
     func setTitleLocalized(_ title: ACLocalizedString?, for state: UIControl.State) {
@@ -54,7 +53,6 @@ public extension UIButton {
     
 }
 
-// MARK: - AttributedTitleLocalized
 public extension UIButton {
     
     func setAttributedTitleLocalized(_ title: ACLocalizedString?, for state: UIControl.State) {

@@ -24,6 +24,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
+        self.navigationItem.titleLocalized = .settings_nav_title()
         
         let guide = self.view.safeAreaLayoutGuide
         self.stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -56,6 +57,10 @@ class SettingsViewController: UIViewController {
         
         self.stackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
         views.forEach({ self.stackView.addArrangedSubview($0) })
+    }
+    
+    func localize() {
+        print("!!! localize")
     }
     
 }
