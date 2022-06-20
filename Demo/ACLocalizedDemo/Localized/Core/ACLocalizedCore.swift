@@ -61,23 +61,20 @@ public class ACLocalizedCore {
         
         let objects = self.localizedObjects.allObjects
         
-        objects.forEach {
-            guard let object = $0 as? ACLocalizedWrapperStoreble else { return }
-            
-            object.localizedWrappers.forEach {
-                object.applyLocalize(fromWrapper: $0)
-            }
-            object.applyLocalize()
-        }
+//        objects.forEach {
+//            guard let object = $0 as? ACLocalizedWrapperStoreble else { return }
+//            object.localizeFromAllWrappers()
+//            object.applyLocalize()
+//        }
     }
     
-    func registerLocalizedObject(_ object: ACLocalizedWrapperStoreble) {
-        self.unregisterLocalizedObject(object)
-        self.localizedObjects.add(object)
-    }
-    
-    func unregisterLocalizedObject(_ object: ACLocalizedWrapperStoreble) {
-        self.localizedObjects.remove(object)
-    }
+//    func registerLocalizedObject(_ object: ACLocalizedWrapperStoreble) {
+//        self.unregisterLocalizedObject(object)
+//        self.localizedObjects.add(object)
+//    }
+//
+//    func unregisterLocalizedObject(_ object: ACLocalizedWrapperStoreble) {
+//        self.localizedObjects.remove(object)
+//    }
     
 }
