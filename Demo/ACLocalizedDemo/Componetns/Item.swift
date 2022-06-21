@@ -2,18 +2,17 @@
 //  Item.swift
 //  ACLocalizedDemo
 //
-//  Created by Дмитрий Поляков on 15.06.2022.
+//  Created by Дмитрий Поляков on 21.06.2022.
 //
 
 import Foundation
 
 struct Item {
-    let title: ACLocalizedString
-    let subtitle: ACLocalizedString
+    let title: String
+    let subtitle: NSAttributedString
     let depth: Int
     
-    #warning("plurals")
-    var depthString: ACLocalizedString {
-        .init(stringLiteral: self.depth.description)
+    var depthString: String {
+        (ACLocalizedString.item_depth(self.depth) + " " + ACLocalizedString.depth_screens_genitive(self.depth)).toString()
     }
 }

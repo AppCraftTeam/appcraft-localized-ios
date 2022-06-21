@@ -8,6 +8,6 @@
 import Foundation
 
 extension ACLocalizedLanguage {
-    static let en = ACLocalizedLanguage("en")
-    static let ru = ACLocalizedLanguage("ru")
+//    static let en = ACLocalizedLanguage("en")
+//    static let ru = ACLocalizedLanguage("ru")
 }

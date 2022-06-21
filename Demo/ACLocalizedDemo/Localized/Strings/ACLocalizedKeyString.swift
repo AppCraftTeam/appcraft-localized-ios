@@ -26,8 +26,7 @@ public struct ACLocalizedKeyString {
 extension ACLocalizedKeyString: ACLocalizedStringProtocol {
     
     public func toString() -> String {
-        let format = ACLocalizedCore.shared.bundle.localizedString(forKey: self.key, value: nil, table: self.table)
-        return String(format: format, locale: Locale.current, arguments: self.args)
+        ACLocalizedCore.shared.localizedString(key: self.key, table: self.table, args: self.args)
     }
     
     public func toAttributedString() -> NSAttributedString {

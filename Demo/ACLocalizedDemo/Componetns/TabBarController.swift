@@ -10,10 +10,25 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
+    // MARK: - Init
+    init(localizedMode: LocalizeMode) {
+        self.localizedMode = localizedMode
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Props
+    let localizedMode: LocalizeMode
+    
+    // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let listVC = ListItemViewController()
+        let listVC = ListItemViewController(localizedMode: self.localizedMode)
         let listNC = UINavigationController(rootViewController: listVC)
         listNC.tabBarItem = UITabBarItem(titleLocalized: .tb_list(), image: nil, tag: 0)
         

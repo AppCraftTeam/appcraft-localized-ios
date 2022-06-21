@@ -19,6 +19,13 @@ class SettingsViewController: UIViewController {
         return result
     }()
     
+    private lazy var activityView: UIActivityIndicatorView = {
+        let result = UIActivityIndicatorView(style: .gray)
+        result.hidesWhenStopped = true
+        
+        return result
+    }()
+    
     // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,25 +37,41 @@ class SettingsViewController: UIViewController {
         self.stackView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.stackView)
         
+        self.activityView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(self.activityView)
+        
         NSLayoutConstraint.activate([
             self.stackView.topAnchor.constraint(equalTo: guide.topAnchor, constant: 16),
             self.stackView.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 16),
             self.stackView.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -16),
-            self.stackView.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -16)
+            self.stackView.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -16),
+            
+            self.activityView.centerXAnchor.constraint(equalTo: guide.centerXAnchor),
+            self.activityView.centerYAnchor.constraint(equalTo: guide.centerYAnchor)
         ])
         
+        self.activityView.stopAnimating()
         self.updateComponents()
     }
     
     func updateComponents() {
-        let langs: [ACLocalizedLanguage] = [.ru, .en]
-        let langSelected = ACLocalizedCore.shared.language ?? .ru
+        let core = ACLocalizedCore.shared
+        let langs: [ACLocalizedLanguage] = core.supportedLanguages
+        let langSelected = core.language
         
         var views: [UIView] = langs.map { lang in
             SettingsLangButton(lang: lang, isChecked: lang == langSelected) { [weak self] lang in
                 DispatchQueue.main.async { [weak self] in
-                    ACLocalizedCore.shared.language = lang
-                    self?.updateComponents()
+                    print("!!! start \(Date())")
+                    self?.activityView.startAnimating()
+                    ACLocalizedCore.shared.setLanguage(lang) { [weak self] in
+                        print("!!! completed \(Date())")
+                        
+                        DispatchQueue.main.async { [weak self] in
+                            self?.updateComponents()
+//                            self?.activityView.stopAnimating()
+                        }
+                    }
                 }
             }
         }
@@ -57,10 +80,6 @@ class SettingsViewController: UIViewController {
         
         self.stackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
         views.forEach({ self.stackView.addArrangedSubview($0) })
-    }
-    
-    func localize() {
-        print("!!! localize")
     }
     
 }

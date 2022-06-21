@@ -8,11 +8,8 @@
 import Foundation
 import UIKit
 
-extension UITextField: ACLocalizedObjectProtocol {
-    
-    public var identifer: String {
-        self.hash.description
-    }
+// MARK: - LocalizedProperty
+private extension UITextField {
     
     enum LocalizedProperty: ACLocalizedPropertyProtocol {
         case text
@@ -34,23 +31,36 @@ extension UITextField: ACLocalizedObjectProtocol {
         }
     }
     
-    public func localize(_ property: ACLocalizedPropertyProtocol, localized: ACLocalizedStringProtocol?) {
-        guard let property = property as? LocalizedProperty else { return }
+}
+
+// MARK: - ACLocalizedObjectProtocol
+extension UITextField: ACLocalizedObjectProtocol {
+    
+    public func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?, completion: (() -> Void)?) {
+        guard let property = property as? LocalizedProperty else {
+            completion?()
+            return
+        }
         
         switch property {
         case .text:
-            self.text = localized?.toString()
+            self.text = string?.toString()
+            completion?()
         case .attributedText:
-            self.attributedText = localized?.toAttributedString()
+            self.attributedText = string?.toAttributedString()
+            completion?()
         case .placeholder:
-            self.placeholder = localized?.toString()
+            self.placeholder = string?.toString()
+            completion?()
         case .attributedPlaceholder:
-            self.attributedPlaceholder = localized?.toAttributedString()
+            self.attributedPlaceholder = string?.toAttributedString()
+            completion?()
         }
     }
     
 }
 
+// MARK: - Props
 public extension UITextField {
     
     var textLocalized: ACLocalizedString? {
@@ -58,27 +68,15 @@ public extension UITextField {
         set { self.setLocalizedString(newValue, for: LocalizedProperty.text) }
     }
     
-}
-
-public extension UITextField {
-    
     var attributedTextLocalized: ACLocalizedString? {
         get { self.getLocalizedString(for: LocalizedProperty.attributedText) }
         set { self.setLocalizedString(newValue, for: LocalizedProperty.attributedText) }
     }
     
-}
-
-public extension UITextField {
-    
     var placeholderLocalized: ACLocalizedString? {
         get { self.getLocalizedString(for: LocalizedProperty.placeholder) }
         set { self.setLocalizedString(newValue, for: LocalizedProperty.placeholder) }
     }
-    
-}
-
-public extension UITextField {
     
     var attributedPlaceholderLocalized: ACLocalizedString? {
         get { self.getLocalizedString(for: LocalizedProperty.attributedPlaceholder) }

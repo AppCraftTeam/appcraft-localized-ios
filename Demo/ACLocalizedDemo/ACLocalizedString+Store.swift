@@ -29,16 +29,20 @@ extension ACLocalizedString {
         .init(key: "item_title", table: "Localized")
     }
     
-    static func item_subtitle() -> ACLocalizedString {
-        .init(key: "item_subtitle", table: "Localized")
-    }
-    
     static func lang_ru() -> ACLocalizedString {
         .init(key: "lang_ru", table: "Localized")
     }
     
     static func lang_en() -> ACLocalizedString {
         .init(key: "lang_en", table: "Localized")
+    }
+    
+    static func depth_screens_genitive(_ count: Int) -> ACLocalizedString {
+        .init(key: "depth_screens_genitive", table: "Localized", args: count)
+    }
+    
+    static func item_depth(_ depth: Int) -> ACLocalizedString {
+        .init(key: "item_depth", table: "Localized", args: depth)
     }
     
 }

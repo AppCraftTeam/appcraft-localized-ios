@@ -8,11 +8,8 @@
 import Foundation
 import UIKit
 
-extension UINavigationItem: ACLocalizedObjectProtocol {
-    
-    public var identifer: String {
-        self.hash.description
-    }
+// MARK: - LocalizedProperty
+private extension UINavigationItem {
     
     enum LocalizedProperty: ACLocalizedPropertyProtocol {
         case title
@@ -28,29 +25,36 @@ extension UINavigationItem: ACLocalizedObjectProtocol {
         }
     }
     
-    public func localize(_ property: ACLocalizedPropertyProtocol, localized: ACLocalizedStringProtocol?) {
-        guard let property = property as? LocalizedProperty else { return }
+}
+
+// MARK: - ACLocalizedObjectProtocol
+extension UINavigationItem: ACLocalizedObjectProtocol {
+    
+    public func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?, completion: (() -> Void)?) {
+        guard let property = property as? LocalizedProperty else {
+            completion?()
+            return
+        }
         
         switch property {
         case .title:
-            self.title = localized?.toString()
+            self.title = string?.toString()
+            completion?()
         case .backButtonTitle:
-            self.backButtonTitle = localized?.toString()
+            self.backButtonTitle = string?.toString()
+            completion?()
         }
     }
     
 }
 
+// MARK: - Props
 public extension UINavigationItem {
     
     var titleLocalized: ACLocalizedString? {
         get { self.getLocalizedString(for: LocalizedProperty.title) }
         set { self.setLocalizedString(newValue, for: LocalizedProperty.title) }
     }
-    
-}
-
-public extension UINavigationItem {
     
     var backButtonTitleLocalized: ACLocalizedString? {
         get { self.getLocalizedString(for: LocalizedProperty.backButtonTitle) }

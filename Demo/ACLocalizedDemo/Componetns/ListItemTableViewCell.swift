@@ -26,6 +26,11 @@ class ListItemTableViewCell: UITableViewCell {
     // MARK: - Props
     private lazy var itemView: ItemView = .init()
     
+    var itemLocalized: ItemLocalized? {
+        get { self.itemView.itemLocalized }
+        set { self.itemView.itemLocalized = newValue }
+    }
+    
     var item: Item? {
         get { self.itemView.item }
         set { self.itemView.item = newValue }

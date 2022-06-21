@@ -8,11 +8,8 @@
 import Foundation
 import UIKit
 
-extension UIBarItem: ACLocalizedObjectProtocol {
-    
-    public var identifer: String {
-        self.hash.description
-    }
+// MARK: - LocalizedProperty
+private extension UIBarItem {
     
     enum LocalizedProperty: ACLocalizedPropertyProtocol {
         case title
@@ -25,17 +22,26 @@ extension UIBarItem: ACLocalizedObjectProtocol {
         }
     }
     
-    public func localize(_ property: ACLocalizedPropertyProtocol, localized: ACLocalizedStringProtocol?) {
-        guard let property = property as? LocalizedProperty else { return }
+}
+
+// MARK: - ACLocalizedObjectProtocol
+extension UIBarItem: ACLocalizedObjectProtocol {
+    
+    public func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?, completion: (() -> Void)?) {
+        guard let property = property as? LocalizedProperty else {
+            completion?()
+            return
+        }
         
         switch property {
         case .title:
-            self.title = localized?.toString()
+            self.title = string?.toString()
+            completion?()
         }
     }
-    
 }
 
+// MARK: - Props
 public extension UIBarItem {
     
     var titleLocalized: ACLocalizedString? {

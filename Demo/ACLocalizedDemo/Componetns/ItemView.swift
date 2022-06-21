@@ -42,6 +42,10 @@ class ItemView: UIView {
         return result
     }()
     
+    var itemLocalized: ItemLocalized? {
+        didSet { self.updateComponents() }
+    }
+    
     var item: Item? {
         didSet { self.updateComponents() }
     }
@@ -62,9 +66,15 @@ class ItemView: UIView {
     }
     
     func updateComponents() {
-        self.titleLabel.textLocalized = self.item?.title
-        self.subtitleLabel.attributedTextLocalized = self.item?.subtitle
-        self.depthLabel.textLocalized = self.item?.depthString
+        if let item = self.item {
+            self.titleLabel.text = item.title
+            self.subtitleLabel.attributedText = item.subtitle
+            self.depthLabel.text = item.depthString
+        } else if let item = self.itemLocalized {
+            self.titleLabel.textLocalized = item.title
+            self.subtitleLabel.attributedTextLocalized = item.subtitle
+            self.depthLabel.textLocalized = item.depthString
+        }
     }
     
 }

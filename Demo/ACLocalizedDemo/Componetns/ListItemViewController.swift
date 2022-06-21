@@ -11,7 +11,9 @@ import UIKit
 class ListItemViewController: UIViewController {
     
     // MARK: - Init
-    init(mainItem: Item? = nil) {
+    init(localizedMode: LocalizeMode, mainItemLocalized: ItemLocalized? = nil, mainItem: Item? = nil) {
+        self.localizedMode = localizedMode
+        self.mainItemLocalized = mainItemLocalized
         self.mainItem = mainItem
         
         super.init(nibName: nil, bundle: nil)
@@ -32,8 +34,11 @@ class ListItemViewController: UIViewController {
         return result
     }()
     
+    private var itemsLocalized: [ItemLocalized] = []
     private var items: [Item] = []
+    private let mainItemLocalized: ItemLocalized?
     private let mainItem: Item?
+    private let localizedMode: LocalizeMode
     
     // MARK: - Methods
     override func viewDidLoad() {
@@ -52,15 +57,43 @@ class ListItemViewController: UIViewController {
             self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
         
-        self.items = (1...100).map({ index in
-            self.createItem(index: index)
-        })
+        switch self.localizedMode {
+        case .enabled:
+            self.itemsLocalized = (1...100).map({ index in
+                self.createItemLocalized(index: index)
+            })
+        case .disabled:
+            self.items = (1...100).map({ index in
+                self.createItem(index: index)
+            })
+        }
+        
         self.tableView.reloadData()
     }
 
-    func createItem(index: Int) -> Item {
+    func createItemLocalized(index: Int) -> ItemLocalized {
         var title: ACLocalizedString {
             let result: ACLocalizedString = "\(ACLocalizedString.item_title()) #\(index)"
+            
+            if let mainItem = self.mainItemLocalized {
+                return mainItem.title + " > " + result
+            } else {
+                return result
+            }
+        }
+        
+        let depth = (self.mainItemLocalized?.depth ?? 0) + 1
+        
+        return .init(
+            title: title,
+            subtitle: ACLocalizedString(string: title, attributes: [ .foregroundColor: UIColor.lightGray ]),
+            depth: depth
+        )
+    }
+    
+    func createItem(index: Int) -> Item {
+        var title: String {
+            let result: String = "\(ACLocalizedString.item_title().toString()) #\(index)"
             
             if let mainItem = self.mainItem {
                 return mainItem.title + " > " + result
@@ -73,12 +106,13 @@ class ListItemViewController: UIViewController {
         
         return .init(
             title: title,
-            subtitle: ACLocalizedString(
-                    string: ACLocalizedString.item_subtitle(),
-                    attributes: [ .foregroundColor: UIColor.lightGray ]
-                ),
+            subtitle: NSAttributedString(string: title, attributes: [ .foregroundColor: UIColor.lightGray ]),
             depth: depth
         )
+    }
+    
+    func applyLocalize() {
+        self.tableView.reloadData()
     }
     
 }
@@ -87,7 +121,12 @@ class ListItemViewController: UIViewController {
 extension ListItemViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.items.count
+        switch self.localizedMode {
+        case .enabled:
+            return self.itemsLocalized.count
+        case .disabled:
+            return self.items.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -95,7 +134,12 @@ extension ListItemViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ListItemTableViewCell", for: indexPath) as? ListItemTableViewCell
         else { return .init() }
         
-        cell.item = self.items[indexPath.row]
+        switch self.localizedMode {
+        case .enabled:
+            cell.itemLocalized = self.itemsLocalized[indexPath.row]
+        case .disabled:
+            cell.item = self.items[indexPath.row]
+        }
         
         return cell
     }
@@ -106,9 +150,16 @@ extension ListItemViewController: UITableViewDataSource {
 extension ListItemViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = self.items[indexPath.row]
-        let vc = ListItemViewController(mainItem: item)
-        self.navigationController?.pushViewController(vc, animated: true)
+        switch self.localizedMode {
+        case .enabled:
+            let itemLocalized = self.itemsLocalized[indexPath.row]
+            let vc = ListItemViewController(localizedMode: self.localizedMode, mainItemLocalized: itemLocalized)
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .disabled:
+            let item = self.items[indexPath.row]
+            let vc = ListItemViewController(localizedMode: self.localizedMode, mainItem: item)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }

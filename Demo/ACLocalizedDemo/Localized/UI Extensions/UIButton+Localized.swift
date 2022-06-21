@@ -8,11 +8,8 @@
 import Foundation
 import UIKit
 
-extension UIButton: ACLocalizedObjectProtocol {
-    
-    public var identifer: String {
-        self.hash.description
-    }
+// MARK: - LocalizedProperty
+private extension UIButton {
     
     enum LocalizedProperty: ACLocalizedPropertyProtocol {
         case setTitle(state: UIControl.State)
@@ -28,19 +25,30 @@ extension UIButton: ACLocalizedObjectProtocol {
         }
     }
     
-    public func localize(_ property: ACLocalizedPropertyProtocol, localized: ACLocalizedStringProtocol?) {
-        guard let property = property as? LocalizedProperty else { return }
+}
+
+// MARK: - ACLocalizedObjectProtocol
+extension UIButton: ACLocalizedObjectProtocol {
+    
+    public func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?, completion: (() -> Void)?) {
+        guard let property = property as? LocalizedProperty else {
+            completion?()
+            return
+        }
         
         switch property {
         case let .setTitle(state):
-            self.setTitle(localized?.toString(), for: state)
+            self.setTitle(string?.toString(), for: state)
+            completion?()
         case let .setAttributedTitle(state):
-            self.setAttributedTitle(localized?.toAttributedString(), for: state)
+            self.setAttributedTitle(string?.toAttributedString(), for: state)
+            completion?()
         }
     }
     
 }
 
+// MARK: - Methods
 public extension UIButton {
     
     func setTitleLocalized(_ title: ACLocalizedString?, for state: UIControl.State) {
@@ -50,10 +58,6 @@ public extension UIButton {
     func getTitleLocalized(_ title: ACLocalizedString?, for state: UIControl.State) -> ACLocalizedString? {
         self.getLocalizedString(for: LocalizedProperty.setTitle(state: state))
     }
-    
-}
-
-public extension UIButton {
     
     func setAttributedTitleLocalized(_ title: ACLocalizedString?, for state: UIControl.State) {
         self.setLocalizedString(title, for: LocalizedProperty.setAttributedTitle(state: state))
