@@ -27,6 +27,12 @@ class SettingsViewController: UIViewController {
     }()
     
     // MARK: - Methods
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.localizeIfNeeded()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,16 +68,9 @@ class SettingsViewController: UIViewController {
         var views: [UIView] = langs.map { lang in
             SettingsLangButton(lang: lang, isChecked: lang == langSelected) { [weak self] lang in
                 DispatchQueue.main.async { [weak self] in
-                    print("!!! start \(Date())")
-                    self?.activityView.startAnimating()
-                    ACLocalizedCore.shared.setLanguage(lang) { [weak self] in
-                        print("!!! completed \(Date())")
-                        
-                        DispatchQueue.main.async { [weak self] in
-                            self?.updateComponents()
-//                            self?.activityView.stopAnimating()
-                        }
-                    }
+                    ACLocalizedCore.shared.language = lang
+                    self?.updateComponents()
+                    self?.localizeIfNeeded()
                 }
             }
         }

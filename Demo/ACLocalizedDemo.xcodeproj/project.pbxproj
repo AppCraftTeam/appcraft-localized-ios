@@ -16,6 +16,7 @@
 		E227976C2858941A00C5BD6E /* ACLocalizedCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227976B2858941A00C5BD6E /* ACLocalizedCore.swift */; };
 		E227976F285895CC00C5BD6E /* UILabel+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E227976E285895CC00C5BD6E /* UILabel+Localized.swift */; };
 		E22797732858966800C5BD6E /* ACLocalizedPropertyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22797722858966800C5BD6E /* ACLocalizedPropertyProtocol.swift */; };
+		E243474A286451C100B1981C /* ACLocalizedResponderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2434749286451C100B1981C /* ACLocalizedResponderProtocol.swift */; };
 		E2900C65285B35700043D4C4 /* UIBarItem+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2900C64285B35700043D4C4 /* UIBarItem+Localized.swift */; };
 		E2900C67285B36670043D4C4 /* UITabBarItem+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2900C66285B36670043D4C4 /* UITabBarItem+Localized.swift */; };
 		E2900C69285B38450043D4C4 /* UIViewController+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2900C68285B38450043D4C4 /* UIViewController+Localized.swift */; };
@@ -56,6 +57,7 @@
 		E227976B2858941A00C5BD6E /* ACLocalizedCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLocalizedCore.swift; sourceTree = "<group>"; };
 		E227976E285895CC00C5BD6E /* UILabel+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Localized.swift"; sourceTree = "<group>"; };
 		E22797722858966800C5BD6E /* ACLocalizedPropertyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLocalizedPropertyProtocol.swift; sourceTree = "<group>"; };
+		E2434749286451C100B1981C /* ACLocalizedResponderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLocalizedResponderProtocol.swift; sourceTree = "<group>"; };
 		E2900C64285B35700043D4C4 /* UIBarItem+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarItem+Localized.swift"; sourceTree = "<group>"; };
 		E2900C66285B36670043D4C4 /* UITabBarItem+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarItem+Localized.swift"; sourceTree = "<group>"; };
 		E2900C68285B38450043D4C4 /* UIViewController+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Localized.swift"; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				E2AE047C285A157A0037FCC3 /* ACLocalizedObjectProtocol.swift */,
 				E22797722858966800C5BD6E /* ACLocalizedPropertyProtocol.swift */,
 				E223FEFA286215AF0026A66C /* ACLocalizedPropertyWrapper.swift */,
+				E2434749286451C100B1981C /* ACLocalizedResponderProtocol.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				E2AE0481285A16360037FCC3 /* ACLocalizedKeyString.swift in Sources */,
 				E227976F285895CC00C5BD6E /* UILabel+Localized.swift in Sources */,
 				E2AE0487285A17090037FCC3 /* ACLocalizedStringProtocol.swift in Sources */,
+				E243474A286451C100B1981C /* ACLocalizedResponderProtocol.swift in Sources */,
 				E2AD1795280DDD14006B6276 /* UIBarButtonItem+Localized.swift in Sources */,
 				E22797732858966800C5BD6E /* ACLocalizedPropertyProtocol.swift in Sources */,
 				E2900C67285B36670043D4C4 /* UITabBarItem+Localized.swift in Sources */,

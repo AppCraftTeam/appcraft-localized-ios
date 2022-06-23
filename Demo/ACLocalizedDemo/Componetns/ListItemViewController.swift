@@ -41,11 +41,20 @@ class ListItemViewController: UIViewController {
     private let localizedMode: LocalizeMode
     
     // MARK: - Methods
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print("!!!", self.navigationController?.navigationBar.items)
+        self.localizeIfNeeded()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
         self.navigationItem.titleLocalized = .list_nav_title()
+
+//        self.titleLocalized = .list_nav_title()
         
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.tableView)
