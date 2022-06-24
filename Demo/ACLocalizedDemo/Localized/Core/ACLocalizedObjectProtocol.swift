@@ -11,20 +11,17 @@ private var localizedWrappersKey = ""
 
 public protocol ACLocalizedObjectProtocol: AnyObject {
     func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?)
-    func localizeAllProperties()
-    func applyLocalize()
+    func localize()
 }
 
 // MARK: - Public
 public extension ACLocalizedObjectProtocol {
     
-    func localizeAllProperties() {
+    func localize() {
         self.localizedWrappers.forEach { wrapper in
             self.localizeProperty(wrapper.property, string: wrapper.string)
         }
     }
-
-    func applyLocalize() {}
 
 }
 

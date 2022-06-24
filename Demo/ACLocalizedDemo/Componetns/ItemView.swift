@@ -52,7 +52,7 @@ class ItemView: UIView {
     
     // MARK: - Methods
     func setupComponents() {
-        let stackView = UIStackView(arrangedSubviews: [self.titleLabel, self.subtitleLabel, self.depthLabel])
+        let stackView = UIStackView(arrangedSubviews: [self.depthLabel, self.titleLabel, self.subtitleLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         self.addSubview(stackView)

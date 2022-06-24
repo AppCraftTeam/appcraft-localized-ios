@@ -44,7 +44,6 @@ class ListItemViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("!!!", self.navigationController?.navigationBar.items)
         self.localizeIfNeeded()
     }
     
@@ -53,8 +52,6 @@ class ListItemViewController: UIViewController {
         
         self.view.backgroundColor = .white
         self.navigationItem.titleLocalized = .list_nav_title()
-
-//        self.titleLocalized = .list_nav_title()
         
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.tableView)
@@ -120,9 +117,15 @@ class ListItemViewController: UIViewController {
         )
     }
     
-    func applyLocalize() {
-        self.tableView.reloadData()
-    }
+//    func applyLocalize() {
+//        print("!!! applyLocalize")
+//        DispatchQueue.main.asyncAfter(deadline: .now() + .microseconds(100)) { [weak self] in
+//            guard let self = self else { return }
+//            self.tableView.reloadData()
+//            self.view.setNeedsLayout()
+//            self.view.layoutIfNeeded()
+//        }
+//    }
     
 }
 

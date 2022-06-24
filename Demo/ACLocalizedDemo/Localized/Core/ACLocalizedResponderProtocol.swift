@@ -30,20 +30,13 @@ extension UIView: ACLocalizedResponderProtocol {
     public func localizeIfNeeded() {
         let coreLanguage = ACLocalizedCore.shared.language
         
-        if self.localizedLanguage == nil {
+        if self.localizedLanguage != coreLanguage {
             self.localizedLanguage = coreLanguage
-            
+
             if let localizedObject = self as? ACLocalizedObjectProtocol {
-                localizedObject.applyLocalize()
+                localizedObject.localize()
             }
-        } else if self.localizedLanguage != coreLanguage {
-            self.localizedLanguage = coreLanguage
-            
-            if let localizedObject = self as? ACLocalizedObjectProtocol {
-                localizedObject.localizeAllProperties()
-                localizedObject.applyLocalize()
-            }
-            
+
             self.subviews.forEach { $0.localizeIfNeeded() }
         }
     }
@@ -56,43 +49,20 @@ extension UIViewController: ACLocalizedResponderProtocol {
     public func localizeIfNeeded() {
         let coreLanguage = ACLocalizedCore.shared.language
         
-        if self.localizedLanguage == nil {
+        if self.localizedLanguage != coreLanguage {
             self.localizedLanguage = coreLanguage
-            
-            self.applyLocalize()
+
+            self.localize()
             self.view.localizeIfNeeded()
-        } else if self.localizedLanguage != coreLanguage {
-            self.localizedLanguage = coreLanguage
             
-            self.localizeAllProperties()
-            self.applyLocalize()
-            self.view.localizeIfNeeded()
+            self.navigationController?.navigationBar.items?.forEach({
+                $0.localize()
+            })
+            
+            self.tabBarController?.tabBar.items?.forEach({
+                $0.localize()
+            })
         }
-        
-        self.tabBarController?.tabBar.items?.forEach({
-            $0.localizeAllProperties()
-            $0.applyLocalize()
-        })
-        
-//        self.navigationController?.navigationBar.items?.forEach({
-//            print("!!!", $0)
-//            $0.localizeAllProperties()
-//            $0.applyLocalize()
-//        })
-        
-        self.navigationItem.localizeAllProperties()
-        self.navigationItem.applyLocalize()
-        
-        self.navigationItem.backBarButtonItem?.localizeAllProperties()
-        self.navigationItem.backBarButtonItem?.applyLocalize()
-        
-        self.navigationController?.navigationBar.items?.forEach({
-            $0.localizeAllProperties()
-            $0.applyLocalize()
-        })
-//        
-//        print("!!!", self.navigationItem.backButtonTitleLocalized, self.navigationController?.navigationBar.backItem, self.navigationItem.backBarButtonItem)
-        
     }
     
 }
