@@ -25,7 +25,12 @@ private extension UIViewController {
 }
 
 // MARK: - ACLocalizedObjectProtocol
-extension UIViewController: ACLocalizedObjectProtocol {
+extension UIViewController: ACLocalizedResponderProtocol {
+    
+    public func localizeProperty(_ property: Any?, string: Any?) {
+        
+    }
+    
     
     public func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?) {
         guard let property = property as? LocalizedProperty else { return }
@@ -35,6 +40,31 @@ extension UIViewController: ACLocalizedObjectProtocol {
             self.title = string?.toString()
         }
     }
+    
+    public func localizeIfNeeded() {
+        let coreLanguage = ACLocalizedCore.shared.language
+
+        if self.localizedLanguage != coreLanguage {
+            self.localizedLanguage = coreLanguage
+
+            self.localize()
+            self.applyLocalize()
+            self.didLocalized()
+            self.view.localizeIfNeeded()
+
+//            self.navigationController?.navigationBar.items?.forEach({
+//                $0.localizeIfNeeded()
+//            })
+//
+//            self.tabBarController?.tabBar.items?.forEach({
+//                $0.localizeIfNeeded()
+//            })
+        }
+    }
+    
+    public func applyLocalize() {}
+    
+    public func didLocalized() {}
     
 }
 

@@ -28,18 +28,18 @@ private extension UIButton {
 }
 
 // MARK: - ACLocalizedObjectProtocol
-extension UIButton: ACLocalizedObjectProtocol {
+extension UIButton: ACLocalizedResponderProtocol {
     
-    public func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?) {
-        guard let property = property as? LocalizedProperty else { return }
-        
-        switch property {
-        case let .setTitle(state):
-            self.setTitle(string?.toString(), for: state)
-        case let .setAttributedTitle(state):
-            self.setAttributedTitle(string?.toAttributedString(), for: state)
-        }
-    }
+//    public func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?) {
+//        guard let property = property as? LocalizedProperty else { return }
+//        
+//        switch property {
+//        case let .setTitle(state):
+//            self.setTitle(string?.toString(), for: state)
+//        case let .setAttributedTitle(state):
+//            self.setAttributedTitle(string?.toAttributedString(), for: state)
+//        }
+//    }
     
 }
 

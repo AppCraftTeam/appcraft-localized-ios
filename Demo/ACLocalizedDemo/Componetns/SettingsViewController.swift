@@ -37,7 +37,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
-        self.navigationItem.titleLocalized = .settings_nav_title()
+//        self.navigationItem.titleLocalized = .settings_nav_title()
         
         let guide = self.view.safeAreaLayoutGuide
         self.stackView.translatesAutoresizingMaskIntoConstraints = false

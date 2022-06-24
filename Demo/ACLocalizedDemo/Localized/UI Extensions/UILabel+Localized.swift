@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 // MARK: - LocalizedProperty
-private extension UILabel {
+extension UILabel {
     
     enum LocalizedProperty: ACLocalizedPropertyProtocol {
         case text
@@ -28,10 +28,24 @@ private extension UILabel {
 }
 
 // MARK: - ACLocalizedObjectProtocol
-extension UILabel: ACLocalizedObjectProtocol {
+extension UILabel {
     
-    public func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?) {
+//    public func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?) {
+//        print("!!! localizeProperty")
+//        guard let property = property as? LocalizedProperty else { return }
+//
+//        switch property {
+//        case .text:
+//            self.text = string?.toString()
+//        case .attributedText:
+//            self.attributedText = string?.toAttributedString()
+//        }
+//    }
+    
+    public override func localizeProperty(_ property: Any?, string: Any?) {
+        print("!!! localizeProperty")
         guard let property = property as? LocalizedProperty else { return }
+        let string = string as? ACLocalizedStringProtocol
         
         switch property {
         case .text:

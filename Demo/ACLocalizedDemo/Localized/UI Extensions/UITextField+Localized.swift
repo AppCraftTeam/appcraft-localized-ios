@@ -34,22 +34,22 @@ private extension UITextField {
 }
 
 // MARK: - ACLocalizedObjectProtocol
-extension UITextField: ACLocalizedObjectProtocol {
+extension UITextField {
     
-    public func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?) {
-        guard let property = property as? LocalizedProperty else { return }
-        
-        switch property {
-        case .text:
-            self.text = string?.toString()
-        case .attributedText:
-            self.attributedText = string?.toAttributedString()
-        case .placeholder:
-            self.placeholder = string?.toString()
-        case .attributedPlaceholder:
-            self.attributedPlaceholder = string?.toAttributedString()
-        }
-    }
+//    public func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?) {
+//        guard let property = property as? LocalizedProperty else { return }
+//        
+//        switch property {
+//        case .text:
+//            self.text = string?.toString()
+//        case .attributedText:
+//            self.attributedText = string?.toAttributedString()
+//        case .placeholder:
+//            self.placeholder = string?.toString()
+//        case .attributedPlaceholder:
+//            self.attributedPlaceholder = string?.toAttributedString()
+//        }
+//    }
     
 }
 

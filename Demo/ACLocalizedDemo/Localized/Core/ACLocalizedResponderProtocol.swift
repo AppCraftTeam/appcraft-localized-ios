@@ -2,66 +2,58 @@
 //  ACLocalizedResponderProtocol.swift
 //  ACLocalizedDemo
 //
-//  Created by Дмитрий Поляков on 23.06.2022.
+//  Created by Дмитрий Поляков on 14.06.2022.
 //
 
 import Foundation
-import UIKit
 
 private var localizedLanguageKey = ""
+private var localizedWrappersKey = ""
 
 public protocol ACLocalizedResponderProtocol: AnyObject {
+    func localizeProperty(_ property: Any?, string: Any?)
+//    func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?)
+    func localize()
     func localizeIfNeeded()
+    func applyLocalize()
+    func didLocalized()
 }
 
-// MARK: - Private
-private extension ACLocalizedResponderProtocol {
+// MARK: - Public
+public extension ACLocalizedResponderProtocol {
+    
+    func localize() {
+        self.localizedWrappers.forEach { wrapper in
+            self.localizeProperty(wrapper.property, string: wrapper.string)
+        }
+    }
+
+}
+
+// MARK: - Internal
+internal extension ACLocalizedResponderProtocol {
     
     var localizedLanguage: ACLocalizedLanguage? {
         get { objc_getAssociatedObject(self, &localizedLanguageKey) as? ACLocalizedLanguage }
         set { objc_setAssociatedObject(self, &localizedLanguageKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
-}
-
-// MARK: - UIView + ACLocalizedResponderProtocol
-extension UIView: ACLocalizedResponderProtocol {
-    
-    public func localizeIfNeeded() {
-        let coreLanguage = ACLocalizedCore.shared.language
-        
-        if self.localizedLanguage != coreLanguage {
-            self.localizedLanguage = coreLanguage
-
-            if let localizedObject = self as? ACLocalizedObjectProtocol {
-                localizedObject.localize()
-            }
-
-            self.subviews.forEach { $0.localizeIfNeeded() }
-        }
+    var localizedWrappers: [ACLocalizedPropertyWrapper] {
+        get { objc_getAssociatedObject(self, &localizedWrappersKey) as? [ACLocalizedPropertyWrapper] ?? [] }
+        set { objc_setAssociatedObject(self, &localizedWrappersKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
-}
+    func getLocalizedString<T: ACLocalizedStringProtocol>(for property: ACLocalizedPropertyProtocol) -> T? {
+        self.localizedWrappers.first(where: { $0.property.identifer == property.identifer })?.string as? T
+    }
 
-// MARK: - UIViewController + ACLocalizedResponderProtocol
-extension UIViewController: ACLocalizedResponderProtocol {
-    
-    public func localizeIfNeeded() {
-        let coreLanguage = ACLocalizedCore.shared.language
-        
-        if self.localizedLanguage != coreLanguage {
-            self.localizedLanguage = coreLanguage
+    func setLocalizedString(_ string: ACLocalizedStringProtocol?, for property: ACLocalizedPropertyProtocol) {
+        self.localizeProperty(property, string: string)
+        self.localizedWrappers.removeAll(where: { $0.property.identifer == property.identifer })
 
-            self.localize()
-            self.view.localizeIfNeeded()
-            
-            self.navigationController?.navigationBar.items?.forEach({
-                $0.localize()
-            })
-            
-            self.tabBarController?.tabBar.items?.forEach({
-                $0.localize()
-            })
+        if let string = string {
+            let wrapper = ACLocalizedPropertyWrapper(property: property, string: string)
+            self.localizedWrappers.append(wrapper)
         }
     }
     

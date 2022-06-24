@@ -51,7 +51,7 @@ class ListItemViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
-        self.navigationItem.titleLocalized = .list_nav_title()
+//        self.navigationItem.titleLocalized = .list_nav_title()
         
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.tableView)
