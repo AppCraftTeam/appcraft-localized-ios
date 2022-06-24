@@ -14,6 +14,7 @@ private extension UINavigationItem {
     enum LocalizedProperty: ACLocalizedPropertyProtocol {
         case title
         case backButtonTitle
+        case prompt
         
         var identifer: String {
             switch self {
@@ -21,6 +22,8 @@ private extension UINavigationItem {
                 return "title"
             case .backButtonTitle:
                 return "backButtonTitle"
+            case .prompt:
+                return "prompt"
             }
         }
     }
@@ -30,19 +33,16 @@ private extension UINavigationItem {
 // MARK: - ACLocalizedObjectProtocol
 extension UINavigationItem: ACLocalizedObjectProtocol {
     
-    public func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?, completion: (() -> Void)?) {
-        guard let property = property as? LocalizedProperty else {
-            completion?()
-            return
-        }
+    public func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?) {
+        guard let property = property as? LocalizedProperty else { return }
         
         switch property {
         case .title:
             self.title = string?.toString()
-            completion?()
         case .backButtonTitle:
             self.backButtonTitle = string?.toString()
-            completion?()
+        case .prompt:
+            self.prompt = string?.toString()
         }
     }
     
@@ -59,6 +59,11 @@ public extension UINavigationItem {
     var backButtonTitleLocalized: ACLocalizedString? {
         get { self.getLocalizedString(for: LocalizedProperty.backButtonTitle) }
         set { self.setLocalizedString(newValue, for: LocalizedProperty.backButtonTitle) }
+    }
+    
+    var promptLocalized: ACLocalizedString? {
+        get { self.getLocalizedString(for: LocalizedProperty.prompt) }
+        set { self.setLocalizedString(newValue, for: LocalizedProperty.prompt) }
     }
     
 }

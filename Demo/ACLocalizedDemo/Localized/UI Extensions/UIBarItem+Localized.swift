@@ -27,16 +27,12 @@ private extension UIBarItem {
 // MARK: - ACLocalizedObjectProtocol
 extension UIBarItem: ACLocalizedObjectProtocol {
     
-    public func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?, completion: (() -> Void)?) {
-        guard let property = property as? LocalizedProperty else {
-            completion?()
-            return
-        }
+    public func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?) {
+        guard let property = property as? LocalizedProperty else { return }
         
         switch property {
         case .title:
             self.title = string?.toString()
-            completion?()
         }
     }
 }

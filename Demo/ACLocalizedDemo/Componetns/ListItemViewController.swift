@@ -41,6 +41,12 @@ class ListItemViewController: UIViewController {
     private let localizedMode: LocalizeMode
     
     // MARK: - Methods
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.localizeIfNeeded()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -111,9 +117,15 @@ class ListItemViewController: UIViewController {
         )
     }
     
-    func applyLocalize() {
-        self.tableView.reloadData()
-    }
+//    func applyLocalize() {
+//        print("!!! applyLocalize")
+//        DispatchQueue.main.asyncAfter(deadline: .now() + .microseconds(100)) { [weak self] in
+//            guard let self = self else { return }
+//            self.tableView.reloadData()
+//            self.view.setNeedsLayout()
+//            self.view.layoutIfNeeded()
+//        }
+//    }
     
 }
 
