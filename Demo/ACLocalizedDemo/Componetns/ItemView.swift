@@ -71,9 +71,10 @@ class ItemView: UIView {
             self.subtitleLabel.attributedText = item.subtitle
             self.depthLabel.text = item.depthString
         } else if let item = self.itemLocalized {
-            self.titleLabel.textLocalized = item.title
-            self.subtitleLabel.attributedTextLocalized = item.subtitle
-            self.depthLabel.textLocalized = item.depthString
+            #warning("localize")
+//            self.titleLabel.textLocalized = item.title
+//            self.subtitleLabel.attributedTextLocalized = item.subtitle
+//            self.depthLabel.textLocalized = item.depthString
         }
     }
     

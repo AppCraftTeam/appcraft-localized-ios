@@ -6,13 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 private var localizedLanguageKey = ""
 private var localizedWrappersKey = ""
 
 public protocol ACLocalizedResponderProtocol: AnyObject {
-    func localizeProperty(_ property: Any?, string: Any?)
-//    func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?)
+    func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?)
     func localize()
     func localizeIfNeeded()
     func applyLocalize()
@@ -58,3 +58,59 @@ internal extension ACLocalizedResponderProtocol {
     }
     
 }
+
+public protocol ACLocalizedLabelProtocol: UILabel, ACLocalizedResponderProtocol {
+    associatedtype LocalizedPropertyType: ACLocalizedPropertyProtocol
+    
+    func localizeProperty(_ property: LocalizedPropertyType, string: ACLocalizedStringProtocol?)
+    func getLocalizedString<T: ACLocalizedStringProtocol>(for property: LocalizedPropertyType) -> T?
+    func setLocalizedString(_ string: ACLocalizedStringProtocol?, for property: LocalizedPropertyType)
+}
+
+public extension ACLocalizedLabelProtocol {
+    
+    func localizeProperty(_ property: ACLocalizedPropertyProtocol, string: ACLocalizedStringProtocol?) {
+        print("!!! localizeProperty")
+//        guard let property = property as? LocalizedProperty else { return }
+//
+//        switch property {
+//        case .text:
+//            self.text = string?.toString()
+//        case .attributedText:
+//            self.attributedText = string?.toAttributedString()
+//        }
+        guard let property = property as? LocalizedPropertyType else { return }
+        self.localizeProperty(property, string: string)
+    }
+    
+//    var textLocalized: ACLocalizedString? {
+//        get { self.getLocalizedString(for: LocalizedProperty.text) }
+//        set { self.setLocalizedString(newValue, for: LocalizedProperty.text) }
+//    }
+//
+//    var attributedTextLocalized: ACLocalizedString? {
+//        get { self.getLocalizedString(for: LocalizedProperty.attributedText) }
+//        set { self.setLocalizedString(newValue, for: LocalizedProperty.attributedText) }
+//    }
+    
+}
+
+//extension UILabel: ACLocalizedLabelProtocol {
+//    
+//    public typealias LocalizedPropertyType = LocalizedProperty
+//    
+//    enum LocalizedProperty: ACLocalizedPropertyProtocol {
+//        case text
+//        case attributedText
+//
+//        var identifer: String {
+//            switch self {
+//            case .text:
+//                return "text"
+//            case .attributedText:
+//                return "attributedText"
+//            }
+//        }
+//    }
+//    
+//}
