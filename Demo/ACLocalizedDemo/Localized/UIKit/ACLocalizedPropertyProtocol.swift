@@ -7,6 +7,8 @@
 
 import Foundation
 
-public protocol ACLocalizedPropertyProtocol {
+protocol ACLocalizedPropertyProtocol {
     var identifer: String { get }
+    
+    func localize(object: AnyObject, string: ACLocalizedStringProtocol?)
 }

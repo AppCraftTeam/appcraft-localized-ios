@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ListItemViewController: UIViewController {
+class ListItemViewController: AppViewController {
     
     // MARK: - Init
     init(localizedMode: LocalizeMode, mainItemLocalized: ItemLocalized? = nil, mainItem: Item? = nil) {
@@ -41,17 +41,11 @@ class ListItemViewController: UIViewController {
     private let localizedMode: LocalizeMode
     
     // MARK: - Methods
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.localizeIfNeeded()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
-//        self.navigationItem.titleLocalized = .list_nav_title()
+        self.navigationItem.titleLocalized = .list_nav_title()
         
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.tableView)
@@ -117,15 +111,11 @@ class ListItemViewController: UIViewController {
         )
     }
     
-//    func applyLocalize() {
-//        print("!!! applyLocalize")
-//        DispatchQueue.main.asyncAfter(deadline: .now() + .microseconds(100)) { [weak self] in
-//            guard let self = self else { return }
-//            self.tableView.reloadData()
-//            self.view.setNeedsLayout()
-//            self.view.layoutIfNeeded()
-//        }
-//    }
+    override func didLocalized() {
+        super.didLocalized()
+        
+        self.tableView.reloadData()
+    }
     
 }
 

@@ -30,11 +30,11 @@ class TabBarController: UITabBarController {
         
         let listVC = ListItemViewController(localizedMode: self.localizedMode)
         let listNC = UINavigationController(rootViewController: listVC)
-//        listNC.tabBarItem = UITabBarItem(titleLocalized: .tb_list(), image: nil, tag: 0)
+        listNC.tabBarItem = UITabBarItem(titleLocalized: .tb_list(), image: nil, tag: 0)
         
         let settingsVC = SettingsViewController()
         let settingsNC = UINavigationController(rootViewController: settingsVC)
-//        settingsNC.tabBarItem = UITabBarItem(titleLocalized: .tb_settings(), image: nil, tag: 0)
+        settingsNC.tabBarItem = UITabBarItem(titleLocalized: .tb_settings(), image: nil, tag: 0)
         
         self.viewControllers = [listNC, settingsNC]
     }

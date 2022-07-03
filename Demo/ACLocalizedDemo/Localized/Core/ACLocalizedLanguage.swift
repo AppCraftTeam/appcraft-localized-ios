@@ -46,7 +46,7 @@ extension ACLocalizedLanguage: ExpressibleByStringLiteral {
 }
 
 // MARK: - Store
-extension ACLocalizedLanguage {
+public extension ACLocalizedLanguage {
     static let en: ACLocalizedLanguage = "en"
     static let ru: ACLocalizedLanguage = "ru"
 }

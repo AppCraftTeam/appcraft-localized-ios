@@ -24,20 +24,20 @@ class ItemView: UIView {
     }
     
     // MARK: - Props
-    private lazy var titleLabel: UILabel = {
-        let result = UILabel()
+    private lazy var titleLabel: AppLabel = {
+        let result = AppLabel()
         result.numberOfLines = 0
         return result
     }()
     
-    private lazy var subtitleLabel: UILabel = {
-        let result = UILabel()
+    private lazy var subtitleLabel: AppLabel = {
+        let result = AppLabel()
         result.numberOfLines = 0
         return result
     }()
     
-    private lazy var depthLabel: UILabel = {
-        let result = UILabel()
+    private lazy var depthLabel: AppLabel = {
+        let result = AppLabel()
         result.numberOfLines = 0
         return result
     }()
@@ -71,10 +71,9 @@ class ItemView: UIView {
             self.subtitleLabel.attributedText = item.subtitle
             self.depthLabel.text = item.depthString
         } else if let item = self.itemLocalized {
-            #warning("localize")
-//            self.titleLabel.textLocalized = item.title
-//            self.subtitleLabel.attributedTextLocalized = item.subtitle
-//            self.depthLabel.textLocalized = item.depthString
+            self.titleLabel.textLocalized = item.title
+            self.subtitleLabel.attributedTextLocalized = item.subtitle
+            self.depthLabel.textLocalized = item.depthString
         }
     }
     

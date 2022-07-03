@@ -36,15 +36,14 @@ class SettingsLangButton: UIButton {
         self.backgroundColor = self.isChecked ? .lightGray : .clear
         self.addTarget(self, action: #selector(self.handleTap), for: .touchUpInside)
         
-        #warning("localize")
-//        switch lang {
-//        case .ru:
-//            self.setTitleLocalized(.lang_ru(), for: .normal)
-//        case .en:
-//            self.setTitleLocalized(.lang_en(), for: .normal)
-//        default:
-//            break
-//        }
+        switch lang {
+        case .ru:
+            self.setTitleLocalized(.lang_ru(), for: .normal)
+        case .en:
+            self.setTitleLocalized(.lang_en(), for: .normal)
+        default:
+            break
+        }
     }
     
     @objc
