@@ -25,10 +25,7 @@ let package = Package(
         .testTarget(
             name: "ACLocalizedStringsTests",
             dependencies: ["ACLocalized"],
-            path: "Tests/ACLocalizedStringTests",
-            resources: [
-                .process("Tests/ACLocalizedStringTests/Localized")
-            ]
+            path: "Tests/ACLocalizedStringTests"
         ),
     ]
 )
