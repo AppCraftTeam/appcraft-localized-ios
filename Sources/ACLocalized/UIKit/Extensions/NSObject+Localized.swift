@@ -1,5 +1,5 @@
 //
-//  ACLocalizedObjectProtocol.swift
+//  NSObject + Localized.swift
 //  ACLocalizedDemo
 //
 //  Created by Дмитрий Поляков on 03.07.2022.
@@ -10,15 +10,7 @@ import Foundation
 private var localizedLanguageKey = ""
 private var localizedWrappersKey = ""
 
-protocol ACLocalizedObjectProtocol: AnyObject {
-    var localizedLanguage: ACLocalizedLanguage? { get set }
-    var localizedWrappers: [ACLocalizedPropertyWrapper] { get set }
-    
-    func getLocalizedString<T: ACLocalizedStringProtocol>(for property: ACLocalizedPropertyProtocol) -> T?
-    func setLocalizedString(_ string: ACLocalizedStringProtocol?, for property: ACLocalizedPropertyProtocol)
-}
-
-extension ACLocalizedObjectProtocol {
+extension NSObject: ACLocalizedObjectProtocol {
     
     var localizedLanguage: ACLocalizedLanguage? {
         get { objc_getAssociatedObject(self, &localizedLanguageKey) as? ACLocalizedLanguage }
@@ -46,3 +38,34 @@ extension ACLocalizedObjectProtocol {
     
 }
 
+public extension NSObject {
+    
+    func objectLocalizeIfNeeded() {
+        func localizeAllProperties() {
+            self.localizedWrappers.forEach { wrapper in
+                wrapper.property.localize(object: self, string: wrapper.string)
+            }
+        }
+        
+        func localizeAsResponder() {
+            let asResponder = self as? ACLocalizedResponderProtocol
+            asResponder?.applyLocalize()
+            asResponder?.didLocalized()
+        }
+        
+        let coreLanguage = ACLocalizedCore.shared.language
+        
+        switch self.localizedLanguage {
+        case coreLanguage:
+            break
+        case .none:
+            localizeAsResponder()
+        default:
+            localizeAllProperties()
+            localizeAsResponder()
+        }
+        
+        self.localizedLanguage = coreLanguage
+    }
+    
+}

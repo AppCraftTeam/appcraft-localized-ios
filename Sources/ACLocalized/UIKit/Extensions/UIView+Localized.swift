@@ -10,10 +10,10 @@ import UIKit
 
 public extension UIView {
 
-    func localizeIfNeeded() {
-        ACLocalizeIfNeeded(self)
-        self.subviews.forEach({ $0.localizeIfNeeded() })
-        self.layer.localizeIfNeeded()
+    func viewLocalizeIfNeeded() {
+        self.objectLocalizeIfNeeded()
+        self.subviews.forEach({ $0.viewLocalizeIfNeeded() })
+        self.layer.layerLocalizeIfNeeded()
     }
 
 }

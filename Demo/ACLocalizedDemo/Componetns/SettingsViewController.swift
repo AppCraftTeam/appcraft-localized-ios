@@ -7,8 +7,9 @@
 
 import Foundation
 import UIKit
+import ACLocalized
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: AppViewController {
     
     // MARK: - Props
     private lazy var stackView: UIStackView = {
@@ -27,12 +28,6 @@ class SettingsViewController: UIViewController {
     }()
     
     // MARK: - Methods
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.localizeIfNeeded()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,7 +65,7 @@ class SettingsViewController: UIViewController {
                 DispatchQueue.main.async { [weak self] in
                     ACLocalizedCore.shared.language = lang
                     self?.updateComponents()
-                    self?.localizeIfNeeded()
+                    self?.viewControllerLocalizeIfNeeded()
                 }
             }
         }

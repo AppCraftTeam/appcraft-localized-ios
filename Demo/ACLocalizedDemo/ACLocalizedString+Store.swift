@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ACLocalized
 
 extension ACLocalizedString {
     

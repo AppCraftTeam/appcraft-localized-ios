@@ -12,6 +12,7 @@ public protocol ACLocalizedStringProtocol: CustomStringConvertible {
     func toAttributedString() -> NSAttributedString
 }
 
+// MARK: - CustomStringConvertible
 public extension ACLocalizedStringProtocol {
     
     var description: String {

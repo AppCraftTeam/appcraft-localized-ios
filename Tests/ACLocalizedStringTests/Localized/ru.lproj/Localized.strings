@@ -1,0 +1,9 @@
+/* 
+  Localized.strings
+  ACLocalizedDemo
+
+  Created by Дмитрий Поляков on 30.03.2022.
+  
+*/
+
+"test_string" = "Тестовая строка";

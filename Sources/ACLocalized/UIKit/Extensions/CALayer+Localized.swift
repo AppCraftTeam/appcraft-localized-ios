@@ -10,9 +10,9 @@ import UIKit
 
 public extension CALayer {
 
-    func localizeIfNeeded() {
-        ACLocalizeIfNeeded(self)
-        self.sublayers?.forEach { $0.localizeIfNeeded() }
+    func layerLocalizeIfNeeded() {
+        self.objectLocalizeIfNeeded()
+        self.sublayers?.forEach { $0.layerLocalizeIfNeeded() }
     }
 
 }

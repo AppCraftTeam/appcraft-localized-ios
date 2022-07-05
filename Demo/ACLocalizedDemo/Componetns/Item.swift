@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ACLocalized
 
 struct Item {
     let title: String

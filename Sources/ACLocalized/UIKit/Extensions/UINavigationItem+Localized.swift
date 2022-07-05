@@ -44,10 +44,6 @@ private extension UINavigationItem {
 
 public extension UINavigationItem {
     
-    func localizeIfNeeded() {
-        ACLocalizeIfNeeded(self)
-    }
-    
     var titleLocalized: ACLocalizedString? {
         get { self.getLocalizedString(for: LocalizedProperty.title) }
         set { self.setLocalizedString(newValue, for: LocalizedProperty.title) }

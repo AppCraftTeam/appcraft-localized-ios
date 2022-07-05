@@ -34,13 +34,13 @@ private extension UIViewController {
 
 public extension UIViewController {
     
-    func localizeIfNeeded() {
-        ACLocalizeIfNeeded(self)
-        self.navigationController?.navigationBar.items?.forEach({ $0.localizeIfNeeded() })
-        self.navigationItem.localizeIfNeeded()
-        self.tabBarController?.tabBar.items?.forEach({ $0.localizeIfNeeded() })
-        self.tabBarItem.localizeIfNeeded()
-        self.view.localizeIfNeeded()
+    func viewControllerLocalizeIfNeeded() {
+        self.objectLocalizeIfNeeded()
+        self.tabBarController?.tabBar.tabBarLocalizeIfNeeded()
+        self.navigationController?.navigationBar.navigationBarLocalizeIfNeeded()
+        self.navigationItem.objectLocalizeIfNeeded()
+        self.tabBarItem.objectLocalizeIfNeeded()
+        self.view.viewLocalizeIfNeeded()
     }
     
     var titleLocalized: ACLocalizedString? {
