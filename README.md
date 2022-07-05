@@ -1,6 +1,8 @@
 # ACLocalized
 
-[[_TOC_]]
+- [Strings](#Strings)
+- [Core](#Core)
+- [UIKit](#UIKit)
 
 ## Strings
 
