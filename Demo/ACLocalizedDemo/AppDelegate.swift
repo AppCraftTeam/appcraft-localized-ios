@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         self.window = .init()
-        self.window?.rootViewController = TabBarController(localizedMode: .enabled)
+        self.window?.rootViewController = TabBarController()
         self.window?.makeKeyAndVisible()
         
         return true

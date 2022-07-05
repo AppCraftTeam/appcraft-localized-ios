@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E209ACAB285A3236004DBB0D /* SettingsLangButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E209ACAA285A3236004DBB0D /* SettingsLangButton.swift */; };
-		E223FEFD286218FF0026A66C /* LocalizeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E223FEFC286218FF0026A66C /* LocalizeMode.swift */; };
-		E223FEFF28621B080026A66C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E223FEFE28621B080026A66C /* Item.swift */; };
 		E2AE0475285A13A40037FCC3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE0474285A13A40037FCC3 /* TabBarController.swift */; };
 		E2AE047B285A13C70037FCC3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE047A285A13C70037FCC3 /* SettingsViewController.swift */; };
 		E2AE0489285A179C0037FCC3 /* ACLocalizedString+Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE0488285A179C0037FCC3 /* ACLocalizedString+Store.swift */; };
@@ -29,8 +27,6 @@
 
 /* Begin PBXFileReference section */
 		E209ACAA285A3236004DBB0D /* SettingsLangButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLangButton.swift; sourceTree = "<group>"; };
-		E223FEFC286218FF0026A66C /* LocalizeMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizeMode.swift; sourceTree = "<group>"; };
-		E223FEFE28621B080026A66C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E2AE0474285A13A40037FCC3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E2AE047A285A13C70037FCC3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E2AE0488285A179C0037FCC3 /* ACLocalizedString+Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ACLocalizedString+Store.swift"; sourceTree = "<group>"; };
@@ -91,12 +87,10 @@
 			children = (
 				E2FD5D2C287334D100033658 /* AppLabel.swift */,
 				E2FD5D2E287334D700033658 /* AppViewController.swift */,
-				E223FEFE28621B080026A66C /* Item.swift */,
 				E2AE048E285A26F10037FCC3 /* ItemLocalized.swift */,
 				E2AE048C285A26D70037FCC3 /* ItemView.swift */,
 				E2AE048A285A26C00037FCC3 /* ListItemTableViewCell.swift */,
 				E2AE0490285A27160037FCC3 /* ListItemViewController.swift */,
-				E223FEFC286218FF0026A66C /* LocalizeMode.swift */,
 				E209ACAA285A3236004DBB0D /* SettingsLangButton.swift */,
 				E2AE047A285A13C70037FCC3 /* SettingsViewController.swift */,
 				E2AE0474285A13A40037FCC3 /* TabBarController.swift */,
@@ -227,9 +221,7 @@
 				E2AE048D285A26D70037FCC3 /* ItemView.swift in Sources */,
 				E2AE048F285A26F10037FCC3 /* ItemLocalized.swift in Sources */,
 				E209ACAB285A3236004DBB0D /* SettingsLangButton.swift in Sources */,
-				E223FEFD286218FF0026A66C /* LocalizeMode.swift in Sources */,
 				E2AE0489285A179C0037FCC3 /* ACLocalizedString+Store.swift in Sources */,
-				E223FEFF28621B080026A66C /* Item.swift in Sources */,
 				E2AE048B285A26C00037FCC3 /* ListItemTableViewCell.swift in Sources */,
 				E2AE0491285A27160037FCC3 /* ListItemViewController.swift in Sources */,
 				E2FD5D2D287334D100033658 /* AppLabel.swift in Sources */,

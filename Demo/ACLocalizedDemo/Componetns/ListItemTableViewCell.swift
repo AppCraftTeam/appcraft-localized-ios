@@ -31,11 +31,6 @@ class ListItemTableViewCell: UITableViewCell {
         set { self.itemView.itemLocalized = newValue }
     }
     
-    var item: Item? {
-        get { self.itemView.item }
-        set { self.itemView.item = newValue }
-    }
-    
     // MARK: - Methods
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         self.contentView.alpha = highlighted ? 0.8 : 1.0

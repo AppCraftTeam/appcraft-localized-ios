@@ -46,10 +46,6 @@ class ItemView: UIView {
         didSet { self.updateComponents() }
     }
     
-    var item: Item? {
-        didSet { self.updateComponents() }
-    }
-    
     // MARK: - Methods
     func setupComponents() {
         let stackView = UIStackView(arrangedSubviews: [self.depthLabel, self.titleLabel, self.subtitleLabel])
@@ -66,15 +62,9 @@ class ItemView: UIView {
     }
     
     func updateComponents() {
-        if let item = self.item {
-            self.titleLabel.text = item.title
-            self.subtitleLabel.attributedText = item.subtitle
-            self.depthLabel.text = item.depthString
-        } else if let item = self.itemLocalized {
-            self.titleLabel.textLocalized = item.title
-            self.subtitleLabel.attributedTextLocalized = item.subtitle
-            self.depthLabel.textLocalized = item.depthString
-        }
+        self.titleLabel.textLocalized = self.itemLocalized?.title
+        self.subtitleLabel.attributedTextLocalized = self.itemLocalized?.subtitle
+        self.depthLabel.textLocalized = self.itemLocalized?.depthString
     }
     
 }

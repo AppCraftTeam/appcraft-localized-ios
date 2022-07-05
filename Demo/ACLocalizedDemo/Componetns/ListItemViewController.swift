@@ -12,10 +12,8 @@ import ACLocalized
 class ListItemViewController: AppViewController {
     
     // MARK: - Init
-    init(localizedMode: LocalizeMode, mainItemLocalized: ItemLocalized? = nil, mainItem: Item? = nil) {
-        self.localizedMode = localizedMode
+    init(mainItemLocalized: ItemLocalized? = nil) {
         self.mainItemLocalized = mainItemLocalized
-        self.mainItem = mainItem
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -36,10 +34,7 @@ class ListItemViewController: AppViewController {
     }()
     
     private var itemsLocalized: [ItemLocalized] = []
-    private var items: [Item] = []
     private let mainItemLocalized: ItemLocalized?
-    private let mainItem: Item?
-    private let localizedMode: LocalizeMode
     
     // MARK: - Methods
     override func viewDidLoad() {
@@ -58,16 +53,9 @@ class ListItemViewController: AppViewController {
             self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
         
-        switch self.localizedMode {
-        case .enabled:
-            self.itemsLocalized = (1...100).map({ index in
-                self.createItemLocalized(index: index)
-            })
-        case .disabled:
-            self.items = (1...100).map({ index in
-                self.createItem(index: index)
-            })
-        }
+        self.itemsLocalized = (1...100).map({ index in
+            self.createItemLocalized(index: index)
+        })
         
         self.tableView.reloadData()
     }
@@ -92,26 +80,6 @@ class ListItemViewController: AppViewController {
         )
     }
     
-    func createItem(index: Int) -> Item {
-        var title: String {
-            let result: String = "\(ACLocalizedString.item_title().toString()) #\(index)"
-            
-            if let mainItem = self.mainItem {
-                return mainItem.title + " > " + result
-            } else {
-                return result
-            }
-        }
-        
-        let depth = (self.mainItem?.depth ?? 0) + 1
-        
-        return .init(
-            title: title,
-            subtitle: NSAttributedString(string: title, attributes: [ .foregroundColor: UIColor.lightGray ]),
-            depth: depth
-        )
-    }
-    
     override func didLocalized() {
         super.didLocalized()
         
@@ -124,12 +92,7 @@ class ListItemViewController: AppViewController {
 extension ListItemViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch self.localizedMode {
-        case .enabled:
-            return self.itemsLocalized.count
-        case .disabled:
-            return self.items.count
-        }
+        self.itemsLocalized.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -137,13 +100,7 @@ extension ListItemViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ListItemTableViewCell", for: indexPath) as? ListItemTableViewCell
         else { return .init() }
         
-        switch self.localizedMode {
-        case .enabled:
-            cell.itemLocalized = self.itemsLocalized[indexPath.row]
-        case .disabled:
-            cell.item = self.items[indexPath.row]
-        }
-        
+        cell.itemLocalized = self.itemsLocalized[indexPath.row]
         return cell
     }
     
@@ -153,16 +110,9 @@ extension ListItemViewController: UITableViewDataSource {
 extension ListItemViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch self.localizedMode {
-        case .enabled:
-            let itemLocalized = self.itemsLocalized[indexPath.row]
-            let vc = ListItemViewController(localizedMode: self.localizedMode, mainItemLocalized: itemLocalized)
-            self.navigationController?.pushViewController(vc, animated: true)
-        case .disabled:
-            let item = self.items[indexPath.row]
-            let vc = ListItemViewController(localizedMode: self.localizedMode, mainItem: item)
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let itemLocalized = self.itemsLocalized[indexPath.row]
+        let vc = ListItemViewController(mainItemLocalized: itemLocalized)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
