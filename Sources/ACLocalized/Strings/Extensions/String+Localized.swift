@@ -18,3 +18,11 @@ extension String: ACLocalizedStringProtocol {
     }
     
 }
+
+public extension String {
+    
+    func toLocalizedString() -> ACLocalizedString {
+        ACLocalizedString(strings: self)
+    }
+    
+}
