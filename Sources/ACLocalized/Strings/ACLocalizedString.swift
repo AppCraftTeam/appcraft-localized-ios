@@ -6,29 +6,36 @@
 //
 
 import Foundation
-#warning("Добавить комментарии")
+
+/**
+ Represents a composition of various strings corresponding to the protocol `ACLocalizedStringProtocol`.
+ */
 public struct ACLocalizedString {
     
     // MARK: - Init
-    public init(strings: [ACLocalizedStringProtocol]) {
+    public init(arrayOfStrings strings: [ACLocalizedStringProtocol]) {
+        self.strings = strings
+    }
+    
+    public init(strings: ACLocalizedStringProtocol...) {
         self.strings = strings
     }
     
     public init(key: String, table: String, args: CVarArg...) {
         let string = ACLocalizedKeyString(key: key, table: table, args: args)
-        self.init(strings: [ string ])
+        self.init(strings: string)
     }
     
     public init(string: ACLocalizedStringProtocol, attributes: [NSAttributedString.Key: Any]?) {
         let string = ACLocalizedAttributedString(string: string, attributes: attributes)
-        self.init(strings: [ string ])
+        self.init(strings: string)
     }
     
     // MARK: - Props
     public var strings: [ACLocalizedStringProtocol]
     
     public static func + (lhs: ACLocalizedString, rhs: ACLocalizedString) -> ACLocalizedString {
-        ACLocalizedString(strings: lhs.strings + rhs.strings)
+        ACLocalizedString(arrayOfStrings: lhs.strings + rhs.strings)
     }
     
     public static func += (lhs: inout ACLocalizedString, rhs: ACLocalizedString) {

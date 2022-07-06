@@ -6,7 +6,10 @@
 //
 
 import Foundation
-#warning("Добавить комментарии")
+
+/**
+ Used to store a localized property and its corresponding localized string.
+ */
 struct ACLocalizedPropertyWrapper {
     
     // MARK: - Init

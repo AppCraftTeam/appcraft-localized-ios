@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-#warning("Добавить комментарии")
+
 public extension UITabBarItem {
     
     convenience init(titleLocalized: ACLocalizedString?, image: UIImage?, tag: Int) {

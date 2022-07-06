@@ -6,7 +6,10 @@
 //
 
 import Foundation
-#warning("Добавить комментарии")
+
+/**
+ Localized string that takes its value from localization tables by key.
+ */
 public struct ACLocalizedKeyString {
     
     // MARK: - Init

@@ -6,7 +6,10 @@
 //
 
 import Foundation
-#warning("Добавить комментарии")
+
+/**
+ Structure for localization language
+ */
 public struct ACLocalizedLanguage {
 
     // MARK: - Init
@@ -15,6 +18,10 @@ public struct ACLocalizedLanguage {
     }
 
     // MARK: - Props
+    
+    /**
+     Property for the localization language code. For example, for English - `en`, for Russian - `ru`.
+     */
     public let code: String
 }
 
@@ -46,6 +53,10 @@ extension ACLocalizedLanguage: ExpressibleByStringLiteral {
 }
 
 // MARK: - Store
+
+/**
+ Basic constants. If other languages are supported in the application, they can be added by analogy with the static properties.
+ */
 public extension ACLocalizedLanguage {
     static let en: ACLocalizedLanguage = "en"
     static let ru: ACLocalizedLanguage = "ru"

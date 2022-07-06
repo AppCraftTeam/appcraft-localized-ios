@@ -6,7 +6,7 @@
 //
 
 import Foundation
-#warning("Добавить комментарии")
+
 private var localizedLanguageKey = ""
 private var localizedWrappersKey = ""
 

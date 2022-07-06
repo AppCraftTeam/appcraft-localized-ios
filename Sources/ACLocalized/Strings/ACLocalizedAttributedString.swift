@@ -7,6 +7,10 @@
 
 import Foundation
 #warning("Добавить комментарии")
+
+/**
+ Localized string with attributes.
+ */
 public struct ACLocalizedAttributedString {
     
     // MARK: - Init

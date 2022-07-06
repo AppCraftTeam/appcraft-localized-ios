@@ -6,7 +6,10 @@
 //
 
 import Foundation
-#warning("Добавить комментарии")
+
+/**
+ Used to generalize different types of localized strings.
+ */
 public protocol ACLocalizedStringProtocol: CustomStringConvertible {
     func toString() -> String
     func toAttributedString() -> NSAttributedString
