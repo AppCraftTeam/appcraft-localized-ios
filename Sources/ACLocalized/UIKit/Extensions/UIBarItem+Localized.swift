@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+#warning("Добавить комментарии")
 private extension UIBarItem {
     
     enum LocalizedProperty: ACLocalizedPropertyProtocol {

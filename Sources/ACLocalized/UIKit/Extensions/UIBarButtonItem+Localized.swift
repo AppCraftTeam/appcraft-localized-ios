@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+#warning("Добавить комментарии")
 public extension UIBarButtonItem {
     
     convenience init(titleLocalized: ACLocalizedString?, style: UIBarButtonItem.Style, target: Any?, action: Selector?) {

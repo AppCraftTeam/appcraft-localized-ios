@@ -24,20 +24,20 @@ class ItemView: UIView {
     }
     
     // MARK: - Props
-    private lazy var titleLabel: AppLabel = {
-        let result = AppLabel()
+    private lazy var titleLabel: UILabel = {
+        let result = UILabel()
         result.numberOfLines = 0
         return result
     }()
     
-    private lazy var subtitleLabel: AppLabel = {
-        let result = AppLabel()
+    private lazy var subtitleLabel: UILabel = {
+        let result = UILabel()
         result.numberOfLines = 0
         return result
     }()
     
-    private lazy var depthLabel: AppLabel = {
-        let result = AppLabel()
+    private lazy var depthLabel: UILabel = {
+        let result = UILabel()
         result.numberOfLines = 0
         return result
     }()

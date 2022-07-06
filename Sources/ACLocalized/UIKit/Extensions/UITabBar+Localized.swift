@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+#warning("Добавить комментарии")
 public extension UITabBar {
     
     func tabBarLocalizeIfNeeded() {

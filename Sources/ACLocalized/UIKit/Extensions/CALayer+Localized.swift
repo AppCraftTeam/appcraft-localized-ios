@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+#warning("Добавить комментарии")
 public extension CALayer {
 
     func layerLocalizeIfNeeded() {

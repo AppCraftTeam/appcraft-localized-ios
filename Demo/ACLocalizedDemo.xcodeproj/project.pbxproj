@@ -20,7 +20,6 @@
 		E2CEA7E627F3541500F92F7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2CEA7E427F3541500F92F7C /* LaunchScreen.storyboard */; };
 		E2CEA7F127F3553A00F92F7C /* ACLocalized in Frameworks */ = {isa = PBXBuildFile; productRef = E2CEA7F027F3553A00F92F7C /* ACLocalized */; };
 		E2D79DDA28605A330099E637 /* Localized.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = E2D79DDC28605A330099E637 /* Localized.stringsdict */; };
-		E2FD5D2D287334D100033658 /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD5D2C287334D100033658 /* AppLabel.swift */; };
 		E2FD5D2F287334D700033658 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD5D2E287334D700033658 /* AppViewController.swift */; };
 		E2FF8C2427F487D600EA81FF /* Localized.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2FF8C2627F487D600EA81FF /* Localized.strings */; };
 /* End PBXBuildFile section */
@@ -42,7 +41,6 @@
 		E2CEA7EE27F3551C00F92F7C /* appcraft-localized-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "appcraft-localized-ios"; path = ..; sourceTree = "<group>"; };
 		E2D79DDB28605A330099E637 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localized.stringsdict; sourceTree = "<group>"; };
 		E2D79DDD28605A370099E637 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localized.stringsdict; sourceTree = "<group>"; };
-		E2FD5D2C287334D100033658 /* AppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
 		E2FD5D2E287334D700033658 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		E2FF8C2327F487BC00EA81FF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		E2FF8C2527F487D600EA81FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localized.strings; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 		E2AE0493285A27260037FCC3 /* Componetns */ = {
 			isa = PBXGroup;
 			children = (
-				E2FD5D2C287334D100033658 /* AppLabel.swift */,
 				E2FD5D2E287334D700033658 /* AppViewController.swift */,
 				E2AE048E285A26F10037FCC3 /* ItemLocalized.swift */,
 				E2AE048C285A26D70037FCC3 /* ItemView.swift */,
@@ -224,7 +221,6 @@
 				E2AE0489285A179C0037FCC3 /* ACLocalizedString+Store.swift in Sources */,
 				E2AE048B285A26C00037FCC3 /* ListItemTableViewCell.swift in Sources */,
 				E2AE0491285A27160037FCC3 /* ListItemViewController.swift in Sources */,
-				E2FD5D2D287334D100033658 /* AppLabel.swift in Sources */,
 				E2AE0475285A13A40037FCC3 /* TabBarController.swift in Sources */,
 				E2AE047B285A13C70037FCC3 /* SettingsViewController.swift in Sources */,
 				E2CEA7DA27F3541400F92F7C /* AppDelegate.swift in Sources */,

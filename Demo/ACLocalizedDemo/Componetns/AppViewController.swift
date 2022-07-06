@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import ACLocalized
-
+#warning("Добавить комментарии")
 class AppViewController: UIViewController, ACLocalizedResponderProtocol {
     func applyLocalize() {}
     func didLocalized() {}

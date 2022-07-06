@@ -7,7 +7,7 @@
 
 import Foundation
 import ACLocalized
-
+#warning("Добавить комментарии")
 extension ACLocalizedString {
     
     static func tb_list() -> ACLocalizedString {

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+#warning("Добавить комментарии")
 public struct ACLocalizedKeyString {
     
     // MARK: - Init

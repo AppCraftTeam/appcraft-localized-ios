@@ -59,7 +59,7 @@ class ListItemViewController: AppViewController {
         
         self.tableView.reloadData()
     }
-
+#warning("Добавить комментарии")
     func createItemLocalized(index: Int) -> ItemLocalized {
         var title: ACLocalizedString {
             let result: ACLocalizedString = "\(ACLocalizedString.item_title()) #\(index)"

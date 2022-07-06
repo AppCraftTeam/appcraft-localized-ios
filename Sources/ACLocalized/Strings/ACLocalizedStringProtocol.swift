@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+#warning("Добавить комментарии")
 public protocol ACLocalizedStringProtocol: CustomStringConvertible {
     func toString() -> String
     func toAttributedString() -> NSAttributedString

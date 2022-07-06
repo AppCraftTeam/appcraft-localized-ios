@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+#warning("Добавить комментарии")
 struct ACLocalizedPropertyWrapper {
     
     // MARK: - Init

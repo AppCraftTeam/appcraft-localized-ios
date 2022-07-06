@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+#warning("Добавить комментарии")
 protocol ACLocalizedObjectProtocol: AnyObject {
     var localizedLanguage: ACLocalizedLanguage? { get set }
     var localizedWrappers: [ACLocalizedPropertyWrapper] { get set }

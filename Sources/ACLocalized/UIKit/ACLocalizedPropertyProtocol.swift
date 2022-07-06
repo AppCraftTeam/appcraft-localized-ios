@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+#warning("Добавить комментарии")
 protocol ACLocalizedPropertyProtocol {
     var identifer: String { get }
     
