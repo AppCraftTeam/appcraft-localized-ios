@@ -6,7 +6,6 @@
 //
 
 import Foundation
-#warning("Добавить комментарии")
 
 /**
  Localized string with attributes.

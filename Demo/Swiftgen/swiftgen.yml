@@ -1,0 +1,9 @@
+input_dir: ../ACLocalizedDemo/
+output_dir: ../ACLocalizedDemo/
+strings:
+  inputs:
+    - ApplicationLayer/Localized/ru.lproj/Localized.strings
+    - ApplicationLayer/Localized/ru.lproj/Localized.stringsdict
+  outputs:
+    - templatePath: swiftgen-aclocalizedstring-template.stencil
+      output: ApplicationLayer/Localized/ACLocalizedString+Generated.swift

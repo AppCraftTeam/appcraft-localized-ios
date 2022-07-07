@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		E209ACAB285A3236004DBB0D /* SettingsLangButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E209ACAA285A3236004DBB0D /* SettingsLangButton.swift */; };
+		E2478000287785C100B6DCF2 /* swiftgen-aclocalizedstring-template.stencil in Resources */ = {isa = PBXBuildFile; fileRef = E2477FFE287785C100B6DCF2 /* swiftgen-aclocalizedstring-template.stencil */; };
+		E2478001287785C100B6DCF2 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = E2477FFF287785C100B6DCF2 /* swiftgen.yml */; };
+		E247800528778E2900B6DCF2 /* ACLocalizedString+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E247800428778E2900B6DCF2 /* ACLocalizedString+Generated.swift */; };
 		E2AE0475285A13A40037FCC3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE0474285A13A40037FCC3 /* TabBarController.swift */; };
 		E2AE047B285A13C70037FCC3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE047A285A13C70037FCC3 /* SettingsViewController.swift */; };
-		E2AE0489285A179C0037FCC3 /* ACLocalizedString+Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE0488285A179C0037FCC3 /* ACLocalizedString+Store.swift */; };
 		E2AE048B285A26C00037FCC3 /* ListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE048A285A26C00037FCC3 /* ListItemTableViewCell.swift */; };
 		E2AE048D285A26D70037FCC3 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE048C285A26D70037FCC3 /* ItemView.swift */; };
 		E2AE048F285A26F10037FCC3 /* ItemLocalized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE048E285A26F10037FCC3 /* ItemLocalized.swift */; };
@@ -26,9 +28,11 @@
 
 /* Begin PBXFileReference section */
 		E209ACAA285A3236004DBB0D /* SettingsLangButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLangButton.swift; sourceTree = "<group>"; };
+		E2477FFE287785C100B6DCF2 /* swiftgen-aclocalizedstring-template.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "swiftgen-aclocalizedstring-template.stencil"; sourceTree = "<group>"; };
+		E2477FFF287785C100B6DCF2 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		E247800428778E2900B6DCF2 /* ACLocalizedString+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ACLocalizedString+Generated.swift"; sourceTree = "<group>"; };
 		E2AE0474285A13A40037FCC3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E2AE047A285A13C70037FCC3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		E2AE0488285A179C0037FCC3 /* ACLocalizedString+Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ACLocalizedString+Store.swift"; sourceTree = "<group>"; };
 		E2AE048A285A26C00037FCC3 /* ListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemTableViewCell.swift; sourceTree = "<group>"; };
 		E2AE048C285A26D70037FCC3 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		E2AE048E285A26F10037FCC3 /* ItemLocalized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLocalized.swift; sourceTree = "<group>"; };
@@ -59,28 +63,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E2477FF32877843C00B6DCF2 /* ApplicationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				E2CEA7D927F3541400F92F7C /* AppDelegate.swift */,
+				E2477FF52877846100B6DCF2 /* Assets */,
+				E2477FF42877845100B6DCF2 /* Localized */,
+			);
+			path = ApplicationLayer;
+			sourceTree = "<group>";
+		};
+		E2477FF42877845100B6DCF2 /* Localized */ = {
+			isa = PBXGroup;
+			children = (
+				E247800428778E2900B6DCF2 /* ACLocalizedString+Generated.swift */,
+				E2FF8C2627F487D600EA81FF /* Localized.strings */,
+				E2D79DDC28605A330099E637 /* Localized.stringsdict */,
+			);
+			path = Localized;
+			sourceTree = "<group>";
+		};
+		E2477FF52877846100B6DCF2 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E2CEA7E227F3541500F92F7C /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E2477FFD287785C100B6DCF2 /* Swiftgen */ = {
+			isa = PBXGroup;
+			children = (
+				E2477FFE287785C100B6DCF2 /* swiftgen-aclocalizedstring-template.stencil */,
+				E2477FFF287785C100B6DCF2 /* swiftgen.yml */,
+			);
+			path = Swiftgen;
+			sourceTree = SOURCE_ROOT;
+		};
 		E2AE0470285A12720037FCC3 /* SupportLayer */ = {
 			isa = PBXGroup;
 			children = (
+				E2477FFD287785C100B6DCF2 /* Swiftgen */,
 				E2CEA7E427F3541500F92F7C /* LaunchScreen.storyboard */,
 				E2CEA7E727F3541500F92F7C /* Info.plist */,
 			);
 			name = SupportLayer;
 			sourceTree = "<group>";
 		};
-		E2AE0472285A12900037FCC3 /* ApplicationLayer */ = {
-			isa = PBXGroup;
-			children = (
-				E2AE0488285A179C0037FCC3 /* ACLocalizedString+Store.swift */,
-				E2CEA7D927F3541400F92F7C /* AppDelegate.swift */,
-				E2CEA7E227F3541500F92F7C /* Assets.xcassets */,
-				E2FF8C2627F487D600EA81FF /* Localized.strings */,
-				E2D79DDC28605A330099E637 /* Localized.stringsdict */,
-			);
-			name = ApplicationLayer;
-			sourceTree = "<group>";
-		};
-		E2AE0493285A27260037FCC3 /* Componetns */ = {
+		E2AE0493285A27260037FCC3 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
 				E2FD5D2E287334D700033658 /* AppViewController.swift */,
@@ -92,7 +122,7 @@
 				E2AE047A285A13C70037FCC3 /* SettingsViewController.swift */,
 				E2AE0474285A13A40037FCC3 /* TabBarController.swift */,
 			);
-			path = Componetns;
+			path = PresentationLayer;
 			sourceTree = "<group>";
 		};
 		E2CEA7CD27F3541400F92F7C = {
@@ -116,8 +146,8 @@
 		E2CEA7D827F3541400F92F7C /* ACLocalizedDemo */ = {
 			isa = PBXGroup;
 			children = (
-				E2AE0472285A12900037FCC3 /* ApplicationLayer */,
-				E2AE0493285A27260037FCC3 /* Componetns */,
+				E2477FF32877843C00B6DCF2 /* ApplicationLayer */,
+				E2AE0493285A27260037FCC3 /* PresentationLayer */,
 				E2AE0470285A12720037FCC3 /* SupportLayer */,
 			);
 			path = ACLocalizedDemo;
@@ -145,6 +175,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2CEA7EA27F3541500F92F7C /* Build configuration list for PBXNativeTarget "ACLocalizedDemo" */;
 			buildPhases = (
+				E2477FF1287783B200B6DCF2 /* SwiftGen */,
 				E2CEA7D227F3541400F92F7C /* Sources */,
 				E2CEA7D327F3541400F92F7C /* Frameworks */,
 				E2CEA7D427F3541400F92F7C /* Resources */,
@@ -186,6 +217,8 @@
 				ru,
 			);
 			mainGroup = E2CEA7CD27F3541400F92F7C;
+			packageReferences = (
+			);
 			productRefGroup = E2CEA7D727F3541400F92F7C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -201,13 +234,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2D79DDA28605A330099E637 /* Localized.stringsdict in Resources */,
+				E2478000287785C100B6DCF2 /* swiftgen-aclocalizedstring-template.stencil in Resources */,
 				E2FF8C2427F487D600EA81FF /* Localized.strings in Resources */,
 				E2CEA7E627F3541500F92F7C /* LaunchScreen.storyboard in Resources */,
 				E2CEA7E327F3541500F92F7C /* Assets.xcassets in Resources */,
+				E2478001287785C100B6DCF2 /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E2477FF1287783B200B6DCF2 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftgen >/dev/null; then\n  swiftgen config run --config $SRCROOT/Swiftgen/swiftgen.yml\nelse\n  echo \"warning: SwiftGen not installed, install from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E2CEA7D227F3541400F92F7C /* Sources */ = {
@@ -218,9 +274,9 @@
 				E2AE048D285A26D70037FCC3 /* ItemView.swift in Sources */,
 				E2AE048F285A26F10037FCC3 /* ItemLocalized.swift in Sources */,
 				E209ACAB285A3236004DBB0D /* SettingsLangButton.swift in Sources */,
-				E2AE0489285A179C0037FCC3 /* ACLocalizedString+Store.swift in Sources */,
 				E2AE048B285A26C00037FCC3 /* ListItemTableViewCell.swift in Sources */,
 				E2AE0491285A27160037FCC3 /* ListItemViewController.swift in Sources */,
+				E247800528778E2900B6DCF2 /* ACLocalizedString+Generated.swift in Sources */,
 				E2AE0475285A13A40037FCC3 /* TabBarController.swift in Sources */,
 				E2AE047B285A13C70037FCC3 /* SettingsViewController.swift in Sources */,
 				E2CEA7DA27F3541400F92F7C /* AppDelegate.swift in Sources */,
