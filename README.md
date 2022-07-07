@@ -18,6 +18,20 @@ Library for localizing UI of application `on the fly`.
 [Author](#Author)
 
 ## Core
+Singleton class for general bundle settings, locale and language.
+
+```swift
+public class ACLocalizedCore {
+    public static let shared = ACLocalizedCore()
+    
+    public var coreBundle: Bundle
+    public var defaultLanguage: ACLocalizedLanguage
+    public var language: ACLocalizedLanguage
+    public var supportedLanguages: [ACLocalizedLanguage]
+    
+    public func localizedString(key: String, table: String, args: CVarArg...) -> String
+}
+```
 
 ## Strings
 The library provides several types of localized strings. Each of them corresponds to the general protocol `ACLocalizedStringProtocol`. Which provides the translation of a localized string to `String` and `NSAttributedString`.
