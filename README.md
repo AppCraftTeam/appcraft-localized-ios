@@ -1,5 +1,13 @@
 # ACLocalized
+Library for localizing UI of application `on the fly`.
 
+[![version](https://img.shields.io/badge/version-1.0.0-white.svg)](https://semver.org)
+
+## Requirements
+* IOS 11 or above
+* Xcode 12.5 or above
+
+## Overview
 [Core](#Core)
 [Strings](#Strings)
 [UIKit](#UIKit)
