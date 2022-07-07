@@ -11,11 +11,11 @@ Library for localizing UI of application `on the fly`.
 [Core](#Core)\
 [Strings](#Strings)\
 [UIKit](#UIKit)\
-[SwiftGen Template](#SwiftGenTemplate)\
+[SwiftGen Template](#SwiftGen_Template)\
 [Demo](#Demo)\
 [Install](#Install)\
 [License](#License)\
-[Author](#MVAuthorVM)
+[Author](#Author)
 
 ## Core
 
