@@ -160,7 +160,7 @@ class AppViewController: UIViewController, ACLocalizedResponderProtocol {
 
 Starting from `viewControllerLocalizeIfNeeded()` the `<component_prefix>LocalizeIfNeeded()` methods will be called for all `UI`-components:
 
-``swift
+```swift
 func viewControllerLocalizeIfNeeded() {
     self.objectLocalizeIfNeeded()
     self.tabBarController?.tabBar.tabBarLocalizeIfNeeded()
