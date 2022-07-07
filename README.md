@@ -127,7 +127,7 @@ extension ACLocalizedString: ACLocalizedStringProtocol {
 ```
 
 Addition operations are also available:
-- `ACLocalizedString` + `ACLocalizedString = `ACLocalizedString`
+- `ACLocalizedString` + `ACLocalizedString` = `ACLocalizedString`
 - `ACLocalizedString` += `ACLocalizedString`
 
 ## UIKit
