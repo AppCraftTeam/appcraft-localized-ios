@@ -37,6 +37,8 @@ public protocol ACLocalizedStringProtocol {
 
 ## UIKit
 
+## SwiftGen Template
+
 ## Demo
 [Small project](/Demo) demonstrating the interaction of `ACLocalized` modules in the application.
 
