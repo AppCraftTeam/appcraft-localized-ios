@@ -8,9 +8,9 @@ Library for localizing UI of application `on the fly`.
 * Xcode 12.5 or above
 
 ## Overview
-[Core](#Core)
-[Strings](#Strings)
-[UIKit](#UIKit)
+[Core](#Core)\
+[Strings](#Strings)\
+[UIKit](#UIKit)\
 [Demo](#Demo)\
 [Install](#Install)\
 [License](#License)\
