@@ -44,10 +44,91 @@ public protocol ACLocalizedStringProtocol {
 ```
 
 ### ACLocalizedKeyString
+Localized string that takes its value from localization tables by key.
+ 
+ ```swift
+public struct ACLocalizedKeyString {
+    public let key: String
+    public let table: String
+    public let args: [CVarArg]
+}
+```
+
+The string is received using the method from `ACLocalizedCore`:
+
+ ```swift
+extension ACLocalizedKeyString: ACLocalizedStringProtocol {
+    
+    public func toString() -> String {
+        ACLocalizedCore.shared.localizedString(key: self.key, table: self.table, args: self.args)
+    }
+    
+    public func toAttributedString() -> NSAttributedString {
+        NSAttributedString(string: self.toString())
+    }
+    
+}
+```
 
 ### ACLocalizedAttributedString
+Localized string with attributes.
+
+ ```swift
+public struct ACLocalizedAttributedString {
+    public let string: ACLocalizedStringProtocol
+    public let attributes: [NSAttributedString.Key: Any]?
+}
+```
+
+Any string corresponding to the `ACLocalizedStringProtocol` can be used as the `string` parameter. `Attributes` will be applied to the result from `toString()`:
+
+ ```swift
+extension ACLocalizedAttributedString: ACLocalizedStringProtocol {
+    
+    public func toString() -> String {
+        self.string.toString()
+    }
+    
+    public func toAttributedString() -> NSAttributedString {
+        NSAttributedString(string: self.toString(), attributes: self.attributes)
+    }
+    
+}
+```
+
+If the value of the `string` parameter is `ACLocalizedAttributedString` then its `attributes` will be ignored.
 
 ### ACLocalizedString
+Represents a composition of various strings corresponding to the protocol `ACLocalizedStringProtocol`.
+
+```swift
+public struct ACLocalizedString {
+    public var strings: [ACLocalizedStringProtocol]
+}
+```
+
+`Strings` can contain any value. When translated into a string, they will be combined:
+
+```swift
+extension ACLocalizedString: ACLocalizedStringProtocol {
+    
+    public func toString() -> String {
+        self.strings.reduce("", { $0 + $1.toString() })
+    }
+    
+    public func toAttributedString() -> NSAttributedString {
+        let result = NSMutableAttributedString()
+        self.strings.forEach({ result.append($0.toAttributedString()) })
+        
+        return result
+    }
+    
+}
+```
+
+Addition operations are also available:
+- `ACLocalizedString` + `ACLocalizedString = `ACLocalizedString`
+- `ACLocalizedString` += `ACLocalizedString`
 
 ## UIKit
 
