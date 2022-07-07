@@ -126,13 +126,53 @@ extension ACLocalizedString: ACLocalizedStringProtocol {
 }
 ```
 
-Addition operations are also available:
-- `ACLocalizedString` + `ACLocalizedString` = `ACLocalizedString`
+Operations are also available:
+- `ACLocalizedString` = `ACLocalizedString` + `ACLocalizedString`
 - `ACLocalizedString` += `ACLocalizedString`
+- `ACLocalizedString` = "\(ACLocalizedString)" (Interpolation)
 
 ## UIKit
+To support `on the fly` localization each `UI`-component implements properties that store localized strings. For example:
+
+```swift
+public extension UILabel {
+    var textLocalized: ACLocalizedString?
+    var attributedTextLocalized: ACLocalizedString?
+}
+```
+
+When setting one of the localized properties, the localized string value will be set to the corresponding native property. For example, `textLocalized` corresponds to `text`. And when calling the `<component_prefix>LocalizeIfNeeded()` method, all set properties will be localized.
+For automatic localization, it is enough to create a base class for the `UIViewController` from which the rest of the viewControllers will be inherited. For example:
+
+```swift
+class AppViewController: UIViewController, ACLocalizedResponderProtocol {
+    func applyLocalize() {}
+    func didLocalized() {}
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.viewControllerLocalizeIfNeeded()
+    }
+
+}
+```
+
+Starting from `viewControllerLocalizeIfNeeded()` the `<component_prefix>LocalizeIfNeeded()` methods will be called for all `UI`-components:
+
+``swift
+func viewControllerLocalizeIfNeeded() {
+    self.objectLocalizeIfNeeded()
+    self.tabBarController?.tabBar.tabBarLocalizeIfNeeded()
+    self.navigationController?.navigationBar.navigationBarLocalizeIfNeeded()
+    self.navigationItem.objectLocalizeIfNeeded()
+    self.tabBarItem.objectLocalizeIfNeeded()
+    self.view.viewLocalizeIfNeeded()
+}
+```
 
 ## SwiftGen Template
+In develop 👨‍💻.
 
 ## Demo
 [Small project](/Demo) demonstrating the interaction of `ACLocalized` modules in the application.
