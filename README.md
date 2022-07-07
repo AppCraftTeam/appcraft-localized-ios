@@ -11,7 +11,7 @@ Library for localizing UI of application `on the fly`.
 [Core](#Core)\
 [Strings](#Strings)\
 [UIKit](#UIKit)\
-[SwiftGen Template](#SwiftGen Template)\
+[SwiftGen Template](#SwiftGenTemplate)\
 [Demo](#Demo)\
 [Install](#Install)\
 [License](#License)\
