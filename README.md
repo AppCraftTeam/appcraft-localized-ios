@@ -132,7 +132,7 @@ Operations are also available:
 - `ACLocalizedString` = "\(ACLocalizedString)" (Interpolation)
 
 ## UIKit
-To support `on the fly` localization each `UI`-component implements properties that store localized strings. For example:
+To support `on the fly` localization each `UI-component` implements properties that store localized strings. For example:
 
 ```swift
 public extension UILabel {
@@ -158,7 +158,7 @@ class AppViewController: UIViewController, ACLocalizedResponderProtocol {
 }
 ```
 
-Starting from `viewControllerLocalizeIfNeeded()` the `<component_prefix>LocalizeIfNeeded()` methods will be called for all `UI`-components:
+Starting from `viewControllerLocalizeIfNeeded()` the `<component_prefix>LocalizeIfNeeded()` methods will be called for all `UI-components`:
 
 ```swift
 func viewControllerLocalizeIfNeeded() {
