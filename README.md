@@ -172,7 +172,7 @@ func viewControllerLocalizeIfNeeded() {
 ```
 
 ## SwiftGen Template
-In develop 👨‍💻.
+Documentation on template generation can be found [here](https://github.com/AppCraftTeam/appcraft-templates-ios#swiftgen). Template files are [here](https://github.com/AppCraftTeam/appcraft-templates-ios/tree/main/Swiftgen).
 
 ## Demo
 [Small project](/Demo) demonstrating the interaction of `ACLocalized` modules in the application.
