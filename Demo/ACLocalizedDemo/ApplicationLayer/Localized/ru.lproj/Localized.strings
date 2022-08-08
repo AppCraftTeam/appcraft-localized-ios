@@ -1,0 +1,20 @@
+/* 
+  Localized.strings
+  ACLocalizedDemo
+
+  Created by Дмитрий Поляков on 30.03.2022.
+  
+*/
+
+"tb_list" = "СПИСОК";
+"tb_settings" = "НАСТРОЙКИ";
+
+"list_nav_title" = "Список";
+
+"settings_nav_title" = "Настройки";
+
+"item_title" = "Загловок элемента";
+"item_depth" = "Глубина: %d";
+
+"lang_ru" = "Русский";
+"lang_en" = "Английский";

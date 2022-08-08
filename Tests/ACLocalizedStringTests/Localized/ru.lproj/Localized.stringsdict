@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>tests</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@value@</string>
+		<key>value</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>тестов</string>
+			<key>one</key>
+			<string>тест</string>
+			<key>two</key>
+			<string>теста</string>
+			<key>few</key>
+			<string>теста</string>
+			<key>many</key>
+			<string>тестов</string>
+			<key>other</key>
+			<string>теста</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

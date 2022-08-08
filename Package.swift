@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "ACLocalized",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v11),
     ],
@@ -20,6 +21,11 @@ let package = Package(
             name: "ACLocalized",
             dependencies: [],
             path: "Sources/ACLocalized"
-        )
+        ),
+        .testTarget(
+            name: "ACLocalizedStringsTests",
+            dependencies: ["ACLocalized"],
+            path: "Tests/ACLocalizedStringTests"
+        ),
     ]
 )
