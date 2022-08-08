@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import ACLocalized
-#warning("Добавить комментарии")
+
 class SettingsViewController: AppViewController {
     
     // MARK: - Props

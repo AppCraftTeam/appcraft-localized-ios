@@ -7,7 +7,7 @@
 
 import Foundation
 import ACLocalized
-#warning("Добавить комментарии")
+
 struct ItemLocalized {
     let title: ACLocalizedString
     let subtitle: ACLocalizedString
